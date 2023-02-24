@@ -1,8 +1,7 @@
 # Project Title
 
 ## 1. Project Description
-State your app in a nutshell, or one-sentence pitch. Give some elaboration on what the core features are.  
-This browser based web application to ... 
+Our team, BBY 15, is developing an interactive mobile app, HospitaliTEA, that helps users find accommodation when stranded due to extreme weather conditions; while also allowing users to provide shelter for community members in need.
 
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
