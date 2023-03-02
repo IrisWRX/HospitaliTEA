@@ -1,0 +1,28 @@
+.navbar {
+    position: relative;
+    font-size: smaller;
+}
+
+.fa-solid {
+    margin-left: 30%;
+}
+
+#accommodation-btn {
+    background-color: #537FE7;
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#accommodation-btn i {
+    padding-right: 25%;
+}
