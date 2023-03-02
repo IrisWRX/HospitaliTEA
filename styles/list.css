@@ -1,0 +1,27 @@
+.navbar {
+    position: relative;
+    font-size: smaller;
+}
+
+.fa-solid {
+    margin-left: 30%;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+}
+
+.back-btn i {
+    font-size: 20px;
+    color: #000;
+}
