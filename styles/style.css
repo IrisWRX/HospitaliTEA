@@ -7,6 +7,6 @@
     font-size: 2.25rem;
 }
 
-.navbar navbar-expand-lg navbar-light bg-success {
-    font-style: italic;
+.btn btn-primary btn-lg{
+    background-color: #5BC0F8 !important;
 }
