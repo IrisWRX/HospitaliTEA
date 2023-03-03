@@ -10,3 +10,7 @@
 .btn btn-primary btn-lg{
     background-color: #5BC0F8 !important;
 }
+.navbar {
+    position: relative;
+    font-size: smaller;
+}
