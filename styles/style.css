@@ -10,3 +10,13 @@
 #back{
     background-image: url('../images/tea1.jpeg');
 }
+
+#message{
+    color: rgb(111, 170, 22);
+    font-size: 18pt;
+}
+
+#welcome{
+    color: rgb(111, 170, 22);
+    font-size: 42pt;
+}
