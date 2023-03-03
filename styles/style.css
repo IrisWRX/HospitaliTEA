@@ -7,6 +7,8 @@
     font-size: 2.25rem;
 }
 
-.navbar navbar-expand-lg navbar-light bg-success {
-    font-style: italic;
+
+
+#back{
+    background-image: url('../images/tea1.jpeg');
 }
