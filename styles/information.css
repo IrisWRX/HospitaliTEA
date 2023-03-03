@@ -1,0 +1,135 @@
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 6px;
+    padding: 10px;
+    color: #333;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.back-btn i {
+    font-size: 17px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: white;
+    overflow: hidden;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.card img {
+    display: block;
+    margin: auto;
+    width: 85%;
+    /* object-fit: cover; */
+
+}
+
+.cardtext {
+    padding: 10px;
+}
+
+.cardtext h2 {
+    margin-top: 0;
+    margin-left: 16px;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.cardtext p {
+    margin: 5px 0;
+    /* font-size: 16px; */
+    margin-left: 16px;
+}
+
+.amenity {
+    font-size: 11px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.call-btn, .email-btn {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.call-btn {
+    background-color: #5bc0de;
+    color: white;
+}
+
+.email-btn {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .cardtext h2 {
+        font-size: 18px;
+    }
+
+    /* .cardtext p {
+        font-size: 14px;
+    } */
+    .distance {
+        font-size: 10px;
+    }
+
+    .call-btn, .email-btn {
+        font-size: 14px;
+        padding: 5px;
+    }
+}
+
+.navbar {
+    position: relative;
+    font-size: smaller;
+}
+
+.fa-solid {
+    margin-left: 30%;
+}
+
+.amenity {
+    position: relative;
+    font-weight: 500;
+    padding-top: 5px;
+    /* padding-left: 20px; */
+    /* Add left padding to create space for the line */
+}
+
+.amenity::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    /* Position the line in the middle of the text */
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: lightgray;
+    transform: translateY(-50%);
+    /* Center the line vertically */
+}
+
+.amenities {
+    font-size: 10px;
+}
