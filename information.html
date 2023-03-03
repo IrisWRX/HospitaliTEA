@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <title>Document</title>
-    <link rel="stylesheet" href="/styles/map.css" />
+    <link rel="stylesheet" href="/styles/information.css" />
     <script
       src="https://kit.fontawesome.com/554845ece2.js"
       crossorigin="anonymous"
@@ -19,28 +19,48 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div class="goback"></div>
-    <div>Ashley Vi's House</div>
-    <div>500m</div>
-    <div>Direction</div>
-    <div>Message</div>
-    <div>
-      <img src="" alt="" />
-      <img src="" alt="" />
+    <button class="back-btn" onclick="goBack()">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
+    <div class="container">
+      <div class="card">
+        <img src="./images/Belcher.png" alt="Shelter image" />
+        <div class="cardtext">
+          <h2>Hosted by Louise Belcher</h2>
+          <!-- <p class="distance">500m away</p> -->
+          <p class="amenity">What this place offers</p>
+          <ul class="amenities">
+            <li>food</li>
+            <li>clothes</li>
+            <li>wifi</li>
+            <li>laundry</li>
+            <li>dryer</li>
+          </ul>
+          <div class="buttons">
+            <button class="call-btn">Direction</button>
+            <button class="email-btn">Contact</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <p>What this place offers</p>
-      <div>food</div>
-      <div>clothes</div>
-      <div>wifi</div>
-      <div>laundry</div>
-      <div>dryer</div>
-    </div>
-    <div>
-      <p>House Rules</p>
-      <p>2 guests maximum</p>
-      <p>no smoking</p>
-      <p>no shoes inside</p>
-    </div>
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-light bg-light">
+      <div class="container w-100">
+        <ul class="navbar-nav flex-row d-flex justify-content-between w-100">
+          <li class="nav-item">
+            <a class="nav-link" href="main.html"><i class="fa-solid fa-house"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i id="communitylogo" class="fa-solid fa-user-group"></i>Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-inbox"></i>Inbox</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i>Profile</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </body>
 </html>
