@@ -28,6 +28,11 @@
       href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Itim&family=Josefin+Sans:ital,wght@1,600&family=Montserrat&family=Nunito&family=Playfair+Display&family=Poller+One&family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/map.css" />
@@ -63,7 +68,7 @@
 </head> -->
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <form class="d-flex w-100">
           <input
@@ -74,9 +79,9 @@
           />
         </form>
       </div>
-    </nav>
+    </nav> -->
 
-    <div class="container-fluid p-0">
+    <!-- <div class="container-fluid p-0">
       <div class="embed-responsive embed-responsive-16by9">
         <iframe
           class="embed-responsive-item"
@@ -88,7 +93,10 @@
           loading="lazy"
         ></iframe>
       </div>
-    </div>
+    </div> -->
+    <main>
+      <div id="map" style="width: 100%; height: 500px"></div>
+    </main>
 
     <button id="accommodation-btn">
       <i class="fa-solid fa-person-shelter"></i>
@@ -102,5 +110,6 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/map_map.js"></script>
   </body>
 </html>
