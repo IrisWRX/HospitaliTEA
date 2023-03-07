@@ -16,21 +16,32 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+
     <!-- Boostrap Library JS CDN  go here -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- Other libraries go here -->
     <link
       href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Itim&family=Josefin+Sans:ital,wght@1,600&family=Montserrat&family=Nunito&family=Playfair+Display&family=Poller+One&family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/554845ece2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/map.css" />
+    <link rel="stylesheet" href="./styles/list.css" />
 
     <!-- Firebase 8 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -43,11 +54,6 @@
       rel="stylesheet"
       href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
     />
-    <script
-      src="https://kit.fontawesome.com/554845ece2.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </head>
 
   <body>
@@ -55,30 +61,29 @@
       <i class="fa-solid fa-arrow-left"></i>
     </button>
     <p id="shelters">Shelters</p>
-    <!-- <div class="accommodation-card">
-      <img src="restaurant-image.jpg" alt="Accommodation Image" />
-      <div class="card-details">
-        <h2>Hosted by Louise Belcher</h2>
-        <p>Distance: 500m</p>
-        <p>Status: 2 spots left</p>
-      </div>
-    </div>
-    <div class="accommodation-card">
-      <img src="restaurant-image.jpg" alt="Accommodation Image" />
-      <div class="card-details">
-        <h2>Hosted by Diane Nguyen</h2>
-        <p>Distance: 800m</p>
-        <p>Status: 1 spots left</p>
-      </div>
-      <div class="accommodation-card">
-        <img src="restaurant-image.jpg" alt="Accommodation Image" />
-        <div class="card-details">
-          <h2>Hosted by Beth Smith</h2>
-          <p>Distance: 900m</p>
-          <p>Status: 3 spots left</p>
+    <!-- Main Body -->
+    <main>
+      <!-- MAPBOX -->
+      <!-- <h2>Shelters</h2> -->
+      <div id="map" style="width: 100%; height: 190px"></div>
+      <!-- MAPBOX -->
+      <!-- <div>
+        <div class="card"></div>
+        <div class="card-body">
+          <h5 class="card-title">Need Suggestion?</h5>
+          <p class="card-text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione
+            eos, molestias dolore deleniti repellendus quam eligendi consequatur
+            asperiores in nostrum ex error. Voluptatibus, odio reiciendis,
+            aliquam accusantium distinctio perferendis dolorum voluptatum odit
+            delectus iste quisquam impedit inventore eos unde perspiciatis nam
+            earum ad rem, nesciunt quam? Laudantium voluptates repellat unde.
+          </p>
         </div>
       </div> -->
-    <div class="container">
+    </main>
+
+    <!-- <div class="container">
       <div class="card">
         <img src="./images/Belcher.png" alt="Shelter Image" />
         <h2 class="cardtext">Hosted by Louise Belcher</h2>
@@ -97,7 +102,78 @@
         <p class="cardtext">Distance: 900m</p>
         <p class="cardtext">Status: 3 spots left</p>
       </div>
+    </div> -->
+    <div class="card1">
+      <div class="card-image">
+        <img src="./images/Belcher.png" alt="Shelter Image" />
+      </div>
+      <div class="card-details">
+        <h3 class="card-title">Hosted by Louise Belcher</h3>
+        <p class="card-distance">Distance: 500m</p>
+        <p class="card-availability">Status: 2 spots left</p>
+        <!-- <p class="rental-card-rooms">2 Bedrooms / 1 Bathroom</p> -->
+      </div>
     </div>
+
+    <div class="card2">
+      <div class="card-image">
+        <img src="./images/Nyugen.png" alt="Shelter Image" />
+      </div>
+      <div class="card-details">
+        <h3 class="card-title">Hosted by Diane Nguyenr</h3>
+        <p class="card-distance">Distance: 800m</p>
+        <p class="card-availability">Status: 1 spot left</p>
+        <!-- <p class="rental-card-rooms">2 Bedrooms / 1 Bathroom</p> -->
+      </div>
+    </div>
+
+    <div class="card3">
+      <div class="card-image">
+        <img src="./images/Smith.jpg" alt="Shelter Image" />
+      </div>
+      <div class="card-details">
+        <h3 class="card-title">Hosted by Beth Smith</h3>
+        <p class="card-distance">Distance: 900m</p>
+        <p class="card-availability">Status: 3 spots left</p>
+        <!-- <p class="rental-card-rooms">2 Bedrooms / 1 Bathroom</p> -->
+      </div>
+    </div>
+
+    <!-- <div class="rental-card3">
+      <div class="rental-card-image">
+        <img src="rental-image.jpg" alt="Rental property image">
+      </div>
+      <div class="rental-card-details">
+        <h3 class="rental-card-title">Beautiful Apartment in Downtown</h3>
+        <p class="rental-card-address">123 Main St, Vancouver</p>
+        <p class="rental-card-price">$2000/month</p>
+        <p class="rental-card-rooms">2 Bedrooms / 1 Bathroom</p>
+      </div>
+    </div>
+
+    <div class="rental-card4">
+      <div class="rental-card-image">
+        <img src="rental-image.jpg" alt="Rental property image">
+      </div>
+      <div class="rental-card-details">
+        <h3 class="rental-card-title">Beautiful Apartment in Downtown</h3>
+        <p class="rental-card-address">123 Main St, Vancouver</p>
+        <p class="rental-card-price">$2000/month</p>
+        <p class="rental-card-rooms">2 Bedrooms / 1 Bathroom</p>
+      </div>
+    </div>
+
+    <div class="rental-card5">
+      <div class="rental-card-image">
+        <img src="rental-image.jpg" alt="Rental property image">
+      </div>
+      <div class="rental-card-details">
+        <h3 class="rental-card-title">Beautiful Apartment in Downtown</h3>
+        <p class="rental-card-address">123 Main St, Vancouver</p>
+        <p class="rental-card-price">$2000/month</p>
+        <p class="rental-card-rooms">2 Bedrooms / 1 Bathroom</p>
+      </div>
+    </div> -->
 
     <footer id="navbarPlaceholder"></footer>
 
@@ -106,5 +182,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/main.js"></script>
+    <script src="./scripts/map.js"></script>
+    <script src="./scripts/list.js"></script>
   </body>
 </html>
