@@ -23,19 +23,19 @@ function populateUserInfo() {
                         document.getElementById("nameInput").value = userName;
                     }
                     if (userAddress != null) {
-                        document.getElementById("inputAddress").value = userCity;
+                        document.getElementById("inputAddress").value = userAddress;
                     }
                     if (userAddress2 != null) {
-                        document.getElementById("inputAddress2").value = userSchool;
+                        document.getElementById("inputAddress2").value = userAddress2;
                     }
                     if (userCity != null) {
-                        document.getElementById("inputCity").value = userSchool;
+                        document.getElementById("inputCity").value = userCity;
                     }
                     if (userProvince != null) {
-                        document.getElementById("inputProvince").value = userSchool;
+                        document.getElementById("inputProvince").value = userProvince;
                     }
                     if (userZip != null) {
-                        document.getElementById("inputZip").value = userSchool;
+                        document.getElementById("inputZip").value = userZip;
                     }
                 })
         } else {
