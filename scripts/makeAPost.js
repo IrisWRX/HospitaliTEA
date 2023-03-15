@@ -60,22 +60,28 @@ function uploadPic(postDocID) {
     console.log("inside uploadPic " + postDocID);
     var storageRef = storage.ref("images/" + postDocID + ".jpg");
 
-    storageRef.put(ImageFile)
+    storageRef.put(ImageFile)   //global variable ImageFile
+       
+                   // AFTER .put() is done
         .then(function () {
             console.log('Uploaded to Cloud Storage.');
             storageRef.getDownloadURL()
+
+                 // AFTER .getDownloadURL is done
                 .then(function (url) { // Get URL of the uploaded file
                     console.log("Got the download URL.");
                     db.collection("posts").doc(postDocID).update({
                             "image": url // Save the URL into users collection
                         })
+
+                         // AFTER .update is done
                         .then(function () {
                             console.log('Added pic URL to Firestore.');
                         })
                 })
         })
         .catch((error) => {
-            console.log("error uploading to cloud storage");
+             console.log("error uploading to cloud storage");
         })
 }
 
@@ -104,31 +110,6 @@ function saveNewPostID(userUID, postDocID) {
         .catch((error) => {
             console.error("Error writing document: ", error);
         });
-}
-
-
-function createFakePosts(sometopic) {
-    alert("in createFakePosts");
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            // Do something for the user here. 
-            db.collection("posts").add({
-                owner: user.uid,
-                description: "This post is about ... " + sometopic,
-                last_updated: firebase.firestore.FieldValue
-                    .serverTimestamp() //current system time
-            }).then(doc => {
-                console.log("Post document added!");
-                console.log(doc.id);
-                saveNewPostID(user.uid, doc.id);
-                //uploadPic(doc.id);
-            })
-        } else {
-            // No user is signed in.
-            console.log("Error: no user is logged in");
-        }
-    });
 }
 
 function showMyPosts() {
