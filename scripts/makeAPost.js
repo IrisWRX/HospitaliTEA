@@ -31,7 +31,7 @@ function listenFileSelect() {
 listenFileSelect();
 
 function savePost() {
-    alert("SAVE POST is triggered");
+    alert("Your post has been saved!");
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             // User is signed in.
@@ -83,16 +83,16 @@ function saveNewPostID(userUID, postDocID) {
     console.log("inside saveNewPostID");
     console.log(userUID);
     console.log(postDocID);
-    // db.collection("users")
-    // .doc(userUID)
-    // .update({
-    //     posts: firebase.firestore.FieldValue.arrayUnion(postDocID)
-    // })
-    // .then(() =>
-    //     console.log("Saved to user's document!"))
-    // .catch((error) => {
-    //     console.error("Error writing document: ", error);
-    // });
+    db.collection("users")
+    .doc(userUID)
+    .update({
+        posts: firebase.firestore.FieldValue.arrayUnion(postDocID)
+    })
+    .then(() =>
+        console.log("Saved to user's document!"))
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
 
     db.collection("users").doc(userUID).set({
             myposts: firebase.firestore.FieldValue.arrayUnion(postDocID)
