@@ -29,7 +29,7 @@ app.get("/login", function (req, res) {
 
 app.get("/home", function (req, res) {
 
-    let doc = fs.readFileSync("./app/html/map.html", "utf8");
+    let doc = fs.readFileSync("./app/html/home.html", "utf8");
     res.send(doc);
 
 });

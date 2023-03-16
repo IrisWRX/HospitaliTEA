@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App" />
+    <title>HospitaliTea</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -22,6 +21,7 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- Other libraries go here -->
     <link
@@ -33,9 +33,14 @@
       rel="stylesheet"
     />
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    <script
+      src="https://kit.fontawesome.com/554845ece2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="/css/map.css" />
+    <link rel="stylesheet" type="text/css" href="/css/home.css" />
 
     <!-- Firebase 8 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -43,16 +48,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
-    />
-    <script
-      src="https://kit.fontawesome.com/554845ece2.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   </head>
 
   <body>
@@ -60,18 +55,17 @@
       <div id="map" style="width: 100%; height: 400px"></div>
     </main>
 
-    <button id="accommodation-btn">
+    <button id="shelter-btn">
       <i class="fa-solid fa-person-shelter"></i>
-      <span>Shelters Nearby</span>
+      <br />
+      <p id="btn-name">Shelters Nearby</p>
     </button>
 
     <footer id="footerPlaceholder"></footer>
 
-    <script src="./scripts/firebaseAPI_HospitaliTea.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/map.js"></script>
+    <script src="/js/firebaseAPI_HospitaliTea.js"></script>
+    <script src="/js/skeleton.js"></script>
+    <script src="/js/authentication.js"></script>
+    <script src="/js/home.js"></script>
   </body>
 </html>

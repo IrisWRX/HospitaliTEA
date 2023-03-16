@@ -4,7 +4,7 @@
 // //---------------------------------------------------
 function loadSkeleton() {
     // Load the footer regardless of login status
-    $('#footerPlaceholder').load('/js/footer.html', function (response, status, xhr) {
+    $('#footerPlaceholder').load('/text/footer.html', function (response, status, xhr) {
         console.log('Loaded footer:', status);
         if (status == 'error') {
             console.log('Error loading footer:', xhr.status, xhr.statusText);

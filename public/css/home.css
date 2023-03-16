@@ -1,5 +1,5 @@
-#accommodation-btn {
-    background-color: #86E5FF;
+#shelter-btn {
+    background-color: #44ceb0;
     border: none;
     color: white;
     padding: 5px 20px;
@@ -8,12 +8,12 @@
     display: block;
     font-size: 16px;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 15px;
     cursor: pointer;
     border-radius: 4px;
 }
 
-#accommodation-btn i {
-    padding-right: 25%;
+#btn-name {
+    margin-bottom: 0;
 }
