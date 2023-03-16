@@ -20,53 +20,56 @@ app.get("/", function (req, res) {
     res.send(doc);
 });
 
-app.get("/hello", function (req, res) {
-    // just send some plain text
-    res.send("Hello world!");
+app.get("/login", function (req, res) {
+    //console.log(process.env);
+    // retrieve and send an HTML document from the file system
+    let doc = fs.readFileSync("./app/html/login.html", "utf8");
+    res.send(doc);
 });
 
-app.get("/helloHTML", function (req, res) {
-    // hard-coded HTML
-    res.send("<html><head><title>Hi!</title></head><body><p>Hello!</p></body></html>");
+app.get("/main", function (req, res) {
+
+    let doc = fs.readFileSync("./app/html/main.html", "utf8");
+    res.send(doc);
+
+});
+
+app.get("/map", function (req, res) {
+
+    let doc = fs.readFileSync("./app/html/map.html", "utf8");
+    res.send(doc);
+
+});
+
+app.get("/list", function (req, res) {
+    //console.log(process.env);
+    // retrieve and send an HTML document from the file system
+    let doc = fs.readFileSync("./app/html/list.html", "utf8");
+    res.send(doc);
+});
+
+app.get("/information", function (req, res) {
+    //console.log(process.env);
+    // retrieve and send an HTML document from the file system
+    let doc = fs.readFileSync("./app/html/information.html", "utf8");
+    res.send(doc);
+});
+
+app.get("/post", function (req, res) {
+    //console.log(process.env);
+    // retrieve and send an HTML document from the file system
+    let doc = fs.readFileSync("./app/html/makeAPost.html", "utf8");
+    res.send(doc);
 });
 
 app.get("/profile", function (req, res) {
 
     let doc = fs.readFileSync("./app/html/profile.html", "utf8");
-
-    // just send the text stream
     res.send(doc);
 
 });
 
-app.get("/schedule", function (req, res) {
 
-    let doc = fs.readFileSync("./app/data/cstschedule.xml", "utf8");
-
-    // just send the text stream
-    res.send(doc);
-
-});
-
-app.get("/lists", function (req, res) {
-
-    let doc = fs.readFileSync("./app/data/lists.js", "utf8");
-
-    // just send the text stream
-    res.send(doc);
-
-});
-
-app.get("/date", function (req, res) {
-
-    // set the type of response:
-    res.setHeader("Content-Type", "application/json");
-    let options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-    let d = new Date();
-
-    res.send({ currentTime: d.toLocaleDateString("en-US", options) });
-
-});
 
 // for resource not found (i.e., 404)
 app.use(function (req, res, next) {
