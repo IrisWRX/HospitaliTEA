@@ -27,14 +27,7 @@ app.get("/login", function (req, res) {
     res.send(doc);
 });
 
-app.get("/main", function (req, res) {
-
-    let doc = fs.readFileSync("./app/html/main.html", "utf8");
-    res.send(doc);
-
-});
-
-app.get("/map", function (req, res) {
+app.get("/home", function (req, res) {
 
     let doc = fs.readFileSync("./app/html/map.html", "utf8");
     res.send(doc);
@@ -68,8 +61,6 @@ app.get("/profile", function (req, res) {
     res.send(doc);
 
 });
-
-
 
 // for resource not found (i.e., 404)
 app.use(function (req, res, next) {
