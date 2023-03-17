@@ -1,6 +1,6 @@
 .back-btn {
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: 6px;
     padding: 10px;
     color: #333;
@@ -16,46 +16,45 @@
     font-size: 17px;
 }
 
+body {
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
 .container {
-    max-width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
+    margin-top: 27px;
+    border-radius: 5px;
 }
 
-.card {
-    background-color: white;
-    overflow: hidden;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
+.shelter-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
-.card img {
-    display: block;
-    margin: auto;
-    width: 85%;
-    /* object-fit: cover; */
-
-}
-
-.cardtext {
-    padding: 10px;
-}
-
-.cardtext h2 {
-    margin-top: 0;
-    margin-left: 16px;
-    margin-bottom: 5px;
+.shelter-title {
     font-size: 24px;
+    margin-top: 15px;
+    color: #6ed9c2;
 }
 
-.cardtext p {
-    margin: 5px 0;
-    /* font-size: 16px; */
-    margin-left: 16px;
+.amenities {
+    margin-bottom: 10px;
 }
 
-.amenity {
-    font-size: 11px;
+.amenities p {
+    margin-bottom: 5px;
+}
+
+.email {
+    margin-bottom: 10px;
 }
 
 .buttons {
@@ -63,73 +62,49 @@
     justify-content: space-between;
 }
 
-.call-btn, .email-btn {
-    width: 48%;
-    padding: 10px;
+.direction-btn,
+.contact-btn {
+    padding: 7px 55px;
     font-size: 16px;
+    color: white;
+    background-color: #6ed9c2;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
-.call-btn {
-    background-color: #5BC0F8;
-    color: white;
-}
-
-.email-btn {
-    background-color: #FFC93C;
-    color: white;
-}
-
-@media (max-width: 600px) {
-    .cardtext h2 {
-        font-size: 18px;
-    }
-
-    /* .cardtext p {
-        font-size: 14px;
-    } */
-    .distance {
-        font-size: 10px;
-    }
-
-    .call-btn, .email-btn {
-        font-size: 14px;
-        padding: 5px;
-    }
-}
-
-.navbar {
-    position: relative;
-    font-size: smaller;
-}
-
-.fa-solid {
-    margin-left: 30%;
-}
-
-.amenity {
-    position: relative;
-    font-weight: 500;
-    padding-top: 5px;
-    /* padding-left: 20px; */
-    /* Add left padding to create space for the line */
-}
-
-.amenity::before {
-    content: "";
-    position: absolute;
-    top: 0%;
-    /* Position the line in the middle of the text */
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: lightgray;
-    transform: translateY(-50%);
-    /* Center the line vertically */
+.direction-btn:hover,
+.contact-btn:hover {
+    background-color: #4db897;
 }
 
 .amenities {
-    font-size: 10px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    margin-top: 15px
+}
+
+.buttons {
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 40px;
+    }
+
+    .shelter-title {
+        font-size: 32px;
+    }
+
+    .amenities p, .email {
+        font-size: 18px;
+    }
+
+    .direction-btn,
+    .contact-btn {
+        font-size: 18px;
+    }
 }

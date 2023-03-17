@@ -1,3 +1,7 @@
+body {
+    height: 100vh;
+}
+
 #shelter-btn {
     background-color: #44ceb0;
     border: none;
@@ -10,7 +14,7 @@
     justify-content: center;
     font-size: 16px;
     margin: 13px auto;
-    margin-top: 20px;
+    margin-top: 25px;
     cursor: pointer;
     border-radius: 10px;
 }
@@ -26,11 +30,11 @@
 
 #map {
     width: 100%;
-    height: 350px;
+    height: 500px;
 }
 
 @media screen and (min-width: 992px) {
     #map {
-        height: 450px;
+        height: 430px;
     }
 }
