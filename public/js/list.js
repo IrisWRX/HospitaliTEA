@@ -11,14 +11,16 @@ function goBack() {
         name: "Hosted by Louise Belcher", 
         distance: "Distance: 500m",
         status: "Status: 2 spots left",
+        lat: 49.25349699080102,
+        lng: -123.0459449494759,
+        email: "LouiseB@gmail.com",
+        amenities: 
         // city: "Burnaby",
         // province: "BC",
         // level: "easy",
 				// details: "A lovely place for lunch walk",
         // length: 10,          //number value
         // hike_time: 60,       //number value
-        // lat: 49.2467097082573,
-        // lng: -122.9187029619698,
         // last_updated: firebase.firestore.FieldValue.serverTimestamp()  //current system time
     });
     sheltersRef.add({
@@ -26,24 +28,35 @@ function goBack() {
         name: "Hosted by Diane Nguyenr", 
         distance: "Distance: 800m",
         status: "Status: 1 spot left",
+        lat: 49.252905588383044, 
+        lng: -123.04478857997705, 
+        email: "DianeN@gmail.com",
     });
     sheltersRef.add({
         code: "NV01",
         name: "Hosted by Beth Smith", 
         distance: "Distance: 900m",
         status: "Status: 3 spots left",
+        lat: 49.25258388804173, 
+        lng: -123.04474592035444, 
+        email: "BethS@gmail.com",
     });
     sheltersRef.add({
       code: "NV02",
       name: "Hosted by Carolyn Munro", 
       distance: "Distance: 990m",
       status: "Status: 1 spots left",
+      lat: 49.251933701113074, 
+      lng: -123.0458459461559, 
+      email: "CarolynM@gmail.com",
     });
     sheltersRef.add({
     code: "NV03",
     name: "Hosted by Nana Fukumoto", 
     distance: "Distance: 1500m",
     status: "Status: 4 spots left",
+    lat: 49.25056556018803, 
+    lng: -123.0486517431532,
 });
 }
 
