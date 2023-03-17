@@ -21,42 +21,42 @@ app.get("/", function (req, res) {
     res.send(doc);
 });
 
-app.get("/login", function (req, res) {
+app.get("/login.html", function (req, res) {
     //console.log(process.env);
     // retrieve and send an HTML document from the file system
     let doc = fs.readFileSync("./app/html/login.html", "utf8");
     res.send(doc);
 });
 
-app.get("/home", function (req, res) {
+app.get("/home.html", function (req, res) {
 
     let doc = fs.readFileSync("./app/html/home.html", "utf8");
     res.send(doc);
 
 });
 
-app.get("/list", function (req, res) {
+app.get("/list.html", function (req, res) {
     //console.log(process.env);
     // retrieve and send an HTML document from the file system
     let doc = fs.readFileSync("./app/html/list.html", "utf8");
     res.send(doc);
 });
 
-app.get("/information", function (req, res) {
+app.get("/information.html", function (req, res) {
     //console.log(process.env);
     // retrieve and send an HTML document from the file system
     let doc = fs.readFileSync("./app/html/information.html", "utf8");
     res.send(doc);
 });
 
-app.get("/post", function (req, res) {
+app.get("/post.html", function (req, res) {
     //console.log(process.env);
     // retrieve and send an HTML document from the file system
     let doc = fs.readFileSync("./app/html/makeAPost.html", "utf8");
     res.send(doc);
 });
 
-app.get("/profile", function (req, res) {
+app.get("/profile.html", function (req, res) {
 
     let doc = fs.readFileSync("./app/html/profile.html", "utf8");
     res.send(doc);

@@ -1,3 +1,7 @@
+function goBack() {
+  window.location.href = "list.html";
+}
+
 // Get the document ID from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const documentId = urlParams.get('id');

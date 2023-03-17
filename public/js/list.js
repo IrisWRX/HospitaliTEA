@@ -1,6 +1,6 @@
 function goBack() {
-    window.history.back();
-  }
+  window.location.href = "home.html";
+}
   
   function writeShelters() {
     //define a variable for the collection you want to create in Firestore to populate data
@@ -14,7 +14,6 @@ function goBack() {
         lat: 49.25349699080102,
         lng: -123.0459449494759,
         email: "LouiseB@gmail.com",
-        amenities: 
         // city: "Burnaby",
         // province: "BC",
         // level: "easy",
@@ -57,6 +56,7 @@ function goBack() {
     status: "Status: 4 spots left",
     lat: 49.25056556018803, 
     lng: -123.0486517431532,
+    email: "NanaF@gmail.com",
 });
 }
 

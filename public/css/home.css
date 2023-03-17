@@ -2,6 +2,10 @@ body {
     height: 100vh;
 }
 
+.shelter-btn-link {
+    text-decoration: none;
+}
+
 #shelter-btn {
     background-color: #44ceb0;
     border: none;
