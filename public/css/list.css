@@ -76,73 +76,37 @@
     font-weight: bold;
 }
 
-/* .rental-card-rooms {
-    font-size: 14px;
-    color: #666;
-    margin-top: 8px;
-} */
+@media (min-width: 992px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-/* .navbar {
-    position: relative;
-    font-size: smaller;
+    .card1 {
+        flex-direction: row;
+        padding: 20px 30px;
+    }
+
+    .card-image {
+        flex: 0 0 240px;
+        margin-right: 24px;
+    }
+
+    .card-img {
+        height: 150px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    .card-distance,
+    .card-status {
+        font-size: 14px;
+    }
+
+    #shelters {
+        font-size: 24px;
+    }
 }
-
-.fa-solid {
-    margin-left: 30%;
-} */
-/* 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-    padding-top: 0;
-    box-sizing: border-box;
-}
-
-.card {
-    width: 100%;
-    height: 150px;
-    margin: 7px 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    transition: 0.3s;
-    background-color: white;
-    overflow: hidden;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.card img {
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
-}
-
-.card h2 {
-    margin-top: 3px;
-    margin-left: 10px;
-    color: #5bc0de;
-    font-size: 10px;
-    flex: 1;
-    /* line-height: 1rem; */
-/* }
-
-.card p {
-    margin-left: 10px;
-    color: #333;
-    font-size: 7px;
-    line-height: 0;
-    height: 0%;
-    flex: 1;
-}
-
-.cardtext {
-    padding-bottom: 0;
-
-} */

@@ -8,7 +8,7 @@ function goBack() {
 
     sheltersRef.add({
         code: "Am01",
-        name: "Hosted by Louise Belcher", //replace with your own city?
+        name: "Hosted by Louise Belcher", 
         distance: "Distance: 500m",
         status: "Status: 2 spots left",
         // city: "Burnaby",
@@ -23,64 +23,28 @@ function goBack() {
     });
     sheltersRef.add({
         code: "BBY01",
-        name: "Hosted by Diane Nguyenr", //replace with your own city?
+        name: "Hosted by Diane Nguyenr", 
         distance: "Distance: 800m",
         status: "Status: 1 spot left",
-        // city: "Anmore",
-        // province: "BC",
-        // level: "moderate",
-        // details: "Close to town, and relaxing",
-        // length: 10.5,      //number value
-        // hike_time: 80,     //number value
-        // lat: 49.3399431028579,
-        // lng: -122.85908496766939,
-        // last_updated: firebase.firestore.Timestamp.fromDate(new Date("March 10, 2022"))
     });
     sheltersRef.add({
         code: "NV01",
-        name: "Hosted by Beth Smith", //replace with your own city?
+        name: "Hosted by Beth Smith", 
         distance: "Distance: 900m",
         status: "Status: 3 spots left",
-        // city: "North Vancouver",
-        // province: "BC",
-        // level: "hard",
-        // details:  "Amazing ski slope views",
-        // length: 8.2,        //number value
-        // hike_time: 120,     //number value
-        // lat: 49.38847101455571,
-        // lng: -122.94092543551031,
-        // last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2023"))
     });
-//     sheltersRef.add({
-//       code: "NV02",
-//       name: "Hosted by Carolyn Munro", //replace with your own city?
-//       distance: "Distance: 990m",
-//       status: "Status: 1 spots left",
-//       // city: "North Vancouver",
-//       // province: "BC",
-//       // level: "hard",
-//       // details:  "Amazing ski slope views",
-//       // length: 8.2,        //number value
-//       // hike_time: 120,     //number value
-//       // lat: 49.38847101455571,
-//       // lng: -122.94092543551031,
-//       // last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2023"))
-//   });
-//   sheltersRef.add({
-//     code: "NV03",
-//     name: "Hosted by Nana Fukumoto", //replace with your own city?
-//     distance: "Distance: 1500m",
-//     status: "Status: 4 spots left",
-//     // city: "North Vancouver",
-//     // province: "BC",
-//     // level: "hard",
-//     // details:  "Amazing ski slope views",
-//     // length: 8.2,        //number value
-//     // hike_time: 120,     //number value
-//     // lat: 49.38847101455571,
-//     // lng: -122.94092543551031,
-//     // last_updated: firebase.firestore.Timestamp.fromDate(new Date("January 1, 2023"))
-// });
+    sheltersRef.add({
+      code: "NV02",
+      name: "Hosted by Carolyn Munro", 
+      distance: "Distance: 990m",
+      status: "Status: 1 spots left",
+    });
+    sheltersRef.add({
+    code: "NV03",
+    name: "Hosted by Nana Fukumoto", 
+    distance: "Distance: 1500m",
+    status: "Status: 4 spots left",
+});
 }
 
 //------------------------------------------------------------------------------
@@ -95,27 +59,17 @@ function displayCardsDynamically(collection) {
           allShelters.forEach(doc => { //iterate thru each doc
               var title = doc.data().name;       // get value of the "name" key
               var distance = doc.data().distance;  // get value of the "details" key
-              var status = doc.data().status;    //get unique ID to each hike to be used for fetching right image
-              var hikeCode = doc.data().code;
-              // var hikeLength = doc.data().length; //gets the length field
+              var status = doc.data().status;    
               let newcard = cardTemplate.content.cloneNode(true);
 
               //update title and text and image
               newcard.querySelector('.card-title').innerHTML = title;
               newcard.querySelector('.card-distance').innerHTML = distance;
               newcard.querySelector('.card-status').innerHTML = status;
-              newcard.querySelector('.card-img').src = `./images/${hikeCode}.jpg`; 
-              // newcard.querySelector('.card-image').src = `./images/${hikeCode}.jpg`; //Example: NV01.jpg
-
-              //Optional: give unique ids to all elements for future use
-              // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-              // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-              // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+              newcard.querySelector('.card-img').src = `/img/${doc.data().code}.jpg`; 
 
               //attach to gallery, Example: "hikes-go-here"
               document.getElementById(collection + "-go-here").appendChild(newcard);
-
-              //i++;   //Optional: iterate variable to serve as unique ID
           })
       })
 }
