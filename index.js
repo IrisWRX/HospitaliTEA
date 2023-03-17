@@ -13,6 +13,7 @@ app.use("/js", express.static("./public/js"));
 app.use("/css", express.static("./public/css"));
 app.use("/img", express.static("./public/img"));
 
+
 app.get("/", function (req, res) {
     //console.log(process.env);
     // retrieve and send an HTML document from the file system
@@ -61,6 +62,10 @@ app.get("/profile", function (req, res) {
     res.send(doc);
 
 });
+
+app.get('/footer.html', (req, res) => {
+    res.sendFile(__dirname + '/text/footer.html');
+  });
 
 // for resource not found (i.e., 404)
 app.use(function (req, res, next) {
