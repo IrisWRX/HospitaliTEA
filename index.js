@@ -12,7 +12,7 @@ const fs = require("fs");
 app.use("/js", express.static("./public/js"));
 app.use("/css", express.static("./public/css"));
 app.use("/img", express.static("./public/img"));
-
+app.use("/html", express.static("./app/html"));
 
 app.get("/", function (req, res) {
     //console.log(process.env);
