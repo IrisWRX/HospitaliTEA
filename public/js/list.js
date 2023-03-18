@@ -24,7 +24,7 @@ function goBack() {
     });
     sheltersRef.add({
         code: "BBY01",
-        name: "Hosted by Diane Nguyenr", 
+        name: "Hosted by Diane Nguyen", 
         distance: "Distance: 800m",
         status: "Status: 1 spot left",
         lat: 49.252905588383044, 
@@ -83,6 +83,12 @@ function displayCardsDynamically(collection) {
 
               //attach to gallery, Example: "hikes-go-here"
               document.getElementById(collection + "-go-here").appendChild(newcard);
+
+              // Add a click event listener to the card and store the shelter ID in local storage
+              newcard.addEventListener('click', () => {
+                localStorage.setItem('shelterId', doc.id);
+                window.location.href = `information.html`;
+              });
           })
       })
 }
