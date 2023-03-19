@@ -9,7 +9,14 @@ function loadSkeleton() {
         if (status == 'error') {
             console.log('Error loading footer:', xhr.status, xhr.statusText);
         }
-    });
+    })
+    $('#navbarPlaceholder').load('./navbar.html', function (response, status, xhr) {
+        console.log('Loaded navbar:', status);
+        if (status == 'error') {
+            console.log('Error loading navbar:', xhr.status, xhr.statusText);
+        }
+    })
+    ;
 }
 
 loadSkeleton(); // Invoke the function
