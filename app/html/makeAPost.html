@@ -33,7 +33,7 @@
     />
   
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/makeAPost.css" />
   
     <!-- Firebase 8 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -59,11 +59,11 @@
     <!------------------------------>
 
     <!-- our own navbar goes here -->
-    <nav id="navbarPlaceholder"></nav>
+    <!-- <nav id="navbarPlaceholder"></nav> -->
 
     <!-- the body of your page goes here -->
     <!-- stuff -->
-    <div class="container">
+    <!-- <div class="container">
         <h1>Make a Post </h1>
         <form>
             <div class="form-group">
@@ -78,6 +78,60 @@
                 <button type="button" class="btn btn-info" onclick="savePost()">Post Now</button>
             </div>
         </form>
+    </div> -->
+    <div style="display: flex; justify-content: center">
+      <div class="container">
+        <div class="job-application">
+          <h3>Your Job Application Info</h3>
+  
+          <label for="company">🏢 Company:</label>
+          <input type="text" id="company" name="company" /><br />
+  
+          <label for="job-title">💼 Job Position:</label>
+          <input type="text" id="job-title" name="job-title" /><br />
+  
+          <label for="link">🔗 Job Posting Link:</label>
+          <input type="text" id="link" name="link" /><br />
+  
+          <label for="status">👣 Status:</label>
+          <br />
+          <select id="status" name="status">
+            <option value="Preparing">Preparing</option>
+            <option value="Submitted">Submitted</option>
+            <option value="Shortlisted">Shortlisted</option>
+            <option value="Negotiating">Negotiating</option>
+            <option value="Offered">Offered</option>
+            <option value="Declined">Declined</option>
+          </select><br />
+  
+          <label for="job-description">ℹ️ Job Description:</label>
+          <textarea id="job-description" name="job-description"></textarea><br />
+  
+          <label for="contact-email">📧 Contact Email:</label>
+          <input type="text" id="contact-email" name="contact-email" /><br />
+  
+          <label for="contact-number"> ☎️ Contact Number:</label>
+          <input type="text" id="contact-number" name="contact-number" /><br />
+  
+          <label for="date-applied">📅 Date Applied:</label>
+          <input type="date" id="date-applied" name="date-applied" /><br />
+  
+          <label for="date-updated">📅 Date Updated:</label>
+          <input type="date" id="date-updated" name="date-updated" /><br />
+  
+          <br />
+  
+          <label for="job-location">📍 Location:</label>
+          <input type="text" id="job-location" name="job-location" /><br />
+  
+          <label for="note">📝 Note:</label>
+          <textarea id="note" name="note"></textarea><br />
+  
+          <div class="btn-container">
+            <button type="submit" id="update-btn">Save Application</button>
+          </div>
+        </div>
+      </div>
     </div>
 
 
