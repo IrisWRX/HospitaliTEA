@@ -6,14 +6,12 @@ body {
   padding-top: 90px;
   overflow: auto;
 }
+
 .btn {
   border-radius: 25px;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
-}
-
-.btn {
   background-color: #17a2b8;
   border-color: #17a2b8;
   color: #fff;
