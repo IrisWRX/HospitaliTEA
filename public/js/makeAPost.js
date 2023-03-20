@@ -1,95 +1,96 @@
 function writePosts() {
-    console.log("inside write post")
-    let Name = document.getElementById("name").value;
-    let Address = document.getElementById("address").value;
-    let Email = document.getElementById("email").value;
-    let Status = document.getElementById("status").value;
-    let amenities = document.querySelectorAll('input[name="amenities"]:checked');
-    let selectedAmenities = {};
-    for (let i = 0; i < amenities.length; i++) {
-        let amenityName = amenities[i].value;
-        selectedAmenities[amenityName] = true;
+  console.log("inside write post");
+  let Name = document.getElementById("name").value;
+  let Address = document.getElementById("address").value;
+  let Email = document.getElementById("email").value;
+  let Status = document.getElementById("status").value;
+  let amenities = document.querySelectorAll('input[name="amenities"]:checked');
+  let selectedAmenities = {};
+  for (let i = 0; i < amenities.length; i++) {
+    let amenityName = amenities[i].value;
+    selectedAmenities[amenityName] = true;
   }
-    console.log(Name, Address, Email, Status, selectedAmenities);
+  console.log(Name, Address, Email, Status, selectedAmenities);
 
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            var currentUser = db.collection("users").doc(user.uid)
-            var userID = user.uid;
-            //get the document for current user.
-            currentUser.get()
-                .then(userDoc => {
-                    var userEmail = userDoc.data().email;
-                    db.collection("posts").add({
-                        name: Name,
-                        address: Address,
-                        email: Email,
-                        status: Status,
-                        amenities: selectedAmenities,
-                        userID: userID,
-                        userEmail: userEmail
-                        // timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then((docRef) => {
-                        alert("Post successfully saved!");
-                        uploadPic(docRef, ImageFile);
-                        // window.location.href = 'home.html';
-                    })
-                })
-        } else {
-            console.log("No user is signed in");
-            window.location.href = 'login.html';
-        }
-    });
-
-    var ImageFile;
-    function listenFileSelect() {
-          // listen for file selection
-          var fileInput = document.getElementById("mypic-input"); // pointer #1
-          const image = document.getElementById("mypic-goes-here"); // pointer #2
-    
-                // When a change happens to the File Chooser Input
-          fileInput.addEventListener('change', function (e) {
-              ImageFile = e.target.files[0];   //Global variable
-              var blob = URL.createObjectURL(ImageFile);
-              image.src = blob; // Display this image
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      var currentUser = db.collection("users").doc(user.uid);
+      var userID = user.uid;
+      //get the document for current user.
+      currentUser.get().then((userDoc) => {
+        var userEmail = userDoc.data().email;
+        db.collection("posts")
+          .add({
+            name: Name,
+            address: Address,
+            email: Email,
+            status: Status,
+            amenities: selectedAmenities,
+            userID: userID,
+            userEmail: userEmail,
+            // timestamp: firebase.firestore.FieldValue.serverTimestamp()
           })
+          .then((docRef) => {
+            alert("Post successfully saved!");
+            uploadPic(docRef, ImageFile);
+            // window.location.href = 'home.html';
+          });
+      });
+    } else {
+      console.log("No user is signed in");
+      window.location.href = "login.html";
     }
-    listenFileSelect();
+  });
 
-    function uploadPic(postDocID, imageFile) {
+  var ImageFile;
+  function listenFileSelect() {
+    // listen for file selection
+    var fileInput = document.getElementById("mypic-input"); // pointer #1
+    const image = document.getElementById("mypic-goes-here"); // pointer #2
+
+    // When a change happens to the File Chooser Input
+    fileInput.addEventListener("change", function (e) {
+      ImageFile = e.target.files[0]; //Global variable
+      var blob = URL.createObjectURL(ImageFile);
+      image.src = blob; // Display this image
+    });
+  }
+  listenFileSelect();
+
+  function uploadPic(postDocID, imageFile) {
     console.log("inside uploadPic " + postDocID.id);
     var storageRef = storage.ref("images/" + postDocID.id + ".jpg");
 
-    storageRef.put(ImageFile)   //global variable ImageFile
-       
-                   // AFTER .put() is done
-        .then(function () {
-            console.log('Uploaded to Cloud Storage.');
-            storageRef.getDownloadURL()
+    storageRef
+      .put(ImageFile) //global variable ImageFile
 
-                 // AFTER .getDownloadURL is done
-                .then(function (url) { // Get URL of the uploaded file
-                    console.log("Got the download URL.");
-                    postDocID.update({ // Use postDocID instead of docRef
-                        "image": url // Save the URL into posts collection
-                    })
-        
+      // AFTER .put() is done
+      .then(function () {
+        console.log("Uploaded to Cloud Storage.");
+        storageRef
+          .getDownloadURL()
 
-                         // AFTER .update is done
-                        .then(function () {
-                            console.log('Added pic URL to Firestore.');
-                        })
-                })
-        })
-        .catch((error) => {
-             console.log("error uploading to cloud storage");
-        })
-    }
+          // AFTER .getDownloadURL is done
+          .then(function (url) {
+            // Get URL of the uploaded file
+            console.log("Got the download URL.");
+            postDocID
+              .update({
+                // Use postDocID instead of docRef
+                image: url, // Save the URL into posts collection
+              })
+
+              // AFTER .update is done
+              .then(function () {
+                console.log("Added pic URL to Firestore.");
+              });
+          });
+      })
+      .catch((error) => {
+        console.log("error uploading to cloud storage");
+      });
+  }
 }
-
-
-
-
 
 // function showUploadedPicture() {
 //     const fileInput = document.getElementById("mypic-input"); // pointer #1
@@ -128,7 +129,7 @@ function writePosts() {
 //     firebase.auth().onAuthStateChanged(function (user) {
 //         if (user) {
 //             // User is signed in.
-//             // Do something for the user here. 
+//             // Do something for the user here.
 //             var desc = document.getElementById("description").value;
 //             db.collection("posts").add({
 //                 owner: user.uid,
@@ -148,13 +149,12 @@ function writePosts() {
 //     });
 // }
 
-
 // function uploadPic(postDocID) {
 //     console.log("inside uploadPic " + postDocID);
 //     var storageRef = storage.ref("images/" + postDocID + ".jpg");
 
 //     storageRef.put(ImageFile)   //global variable ImageFile
-       
+
 //                    // AFTER .put() is done
 //         .then(function () {
 //             console.log('Uploaded to Cloud Storage.');
@@ -209,7 +209,7 @@ function writePosts() {
 //     firebase.auth().onAuthStateChanged(function (user) {
 //         if (user) {
 //             // User is signed in.
-//             // Do something for the user here. 
+//             // Do something for the user here.
 //             db.collection("users").doc(user.uid).get()
 //                 .then(doc => {
 //                     console.log(doc.data().myposts);
