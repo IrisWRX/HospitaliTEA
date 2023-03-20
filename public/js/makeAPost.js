@@ -3,7 +3,6 @@ function writePosts() {
     let Name = document.getElementById("name").value;
     let Address = document.getElementById("address").value;
     let Email = document.getElementById("email").value;
-    // let Status = document.getElementById("status").value;
     let Status = document.getElementById("status").value;
     let amenities = document.querySelectorAll('input[name="amenities"]:checked');
     let selectedAmenities = {};
@@ -29,12 +28,11 @@ function writePosts() {
                         amenities: selectedAmenities,
                         userID: userID,
                         userEmail: userEmail
-                        // flooded: Flooded,
-                        // scrambled: Scrambled,
                         // timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                    }).then(() => {
+                    }).then((docRef) => {
                         alert("Post successfully saved!");
-                        window.location.href = 'home.html';
+                        uploadPic(docRef, ImageFile);
+                        // window.location.href = 'home.html';
                     })
                 })
         } else {
@@ -42,6 +40,51 @@ function writePosts() {
             window.location.href = 'login.html';
         }
     });
+
+    var ImageFile;
+    function listenFileSelect() {
+          // listen for file selection
+          var fileInput = document.getElementById("mypic-input"); // pointer #1
+          const image = document.getElementById("mypic-goes-here"); // pointer #2
+    
+                // When a change happens to the File Chooser Input
+          fileInput.addEventListener('change', function (e) {
+              ImageFile = e.target.files[0];   //Global variable
+              var blob = URL.createObjectURL(ImageFile);
+              image.src = blob; // Display this image
+          })
+    }
+    listenFileSelect();
+
+    function uploadPic(postDocID, imageFile) {
+    console.log("inside uploadPic " + postDocID.id);
+    var storageRef = storage.ref("images/" + postDocID.id + ".jpg");
+
+    storageRef.put(ImageFile)   //global variable ImageFile
+       
+                   // AFTER .put() is done
+        .then(function () {
+            console.log('Uploaded to Cloud Storage.');
+            storageRef.getDownloadURL()
+
+                 // AFTER .getDownloadURL is done
+                .then(function (url) { // Get URL of the uploaded file
+                    console.log("Got the download URL.");
+                    postDocID.update({ // Use postDocID instead of docRef
+                        "image": url // Save the URL into posts collection
+                    })
+        
+
+                         // AFTER .update is done
+                        .then(function () {
+                            console.log('Added pic URL to Firestore.');
+                        })
+                })
+        })
+        .catch((error) => {
+             console.log("error uploading to cloud storage");
+        })
+    }
 }
 
 
