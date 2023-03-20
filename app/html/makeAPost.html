@@ -70,19 +70,19 @@
       <form>
           <div class="form-group">
               <label for="exampleFormControlInput1">Your name:</label>
-              <input type="text" class="form-control" id="title">
+              <input type="text" class="form-control" id="name">
           </div><br>
           <div class="form-group">
             <label for="exampleFormControlInput1">Address:</label>
-            <input type="text" class="form-control" id="title">
+            <input type="text" class="form-control" id="address">
         </div><br>
         <div class="form-group">
           <label for="exampleFormControlInput1">Email: </label>
-          <input type="text" class="form-control" id="title">
+          <input type="text" class="form-control" id="email">
       </div><br>
           <div class="form-group">
               <label for="exampleFormControlSelect1">Status:</label>
-              <select class="form-control" id="level">
+              <select class="form-control" id="status">
                   <option>1 spot left</option>
                   <option>2 spots left</option>
                   <option>3 spots left</option>
@@ -91,16 +91,48 @@
               </select>
               <br>
               <div class="form-group">
-                  <label for="exampleFormControlSelect1">Amenities</label>
-                  <select class="form-control" id="season">
-                      <option>Clothes</option>
+                  <label for="exampleFormControlSelect1" id="amenities">Amenities:</label>
+                  <br>
+                  <!-- <select class="form-control" id="amenities"> -->
+                      <!-- <option>Clothes</option>
                       <option>Food</option>
                       <option>Hair Dryer</option>
                       <option>Laundry</option>
                       <option>Wifi</option>
                       <option>Air Conditioning</option>
-                      <option>Heat</option>
-                  </select>
+                      <option>Heat</option> -->
+                      <label for="clothes">
+                        <input type="checkbox" name="amenities" id="clothes" value="Clothes">
+                        Clothes
+                      </label>
+                      <label for="food">
+                        <input type="checkbox" name="amenities" id="food" value="Food">
+                        Food
+                      </label>
+                      <label for="hair-dryer">
+                        <input type="checkbox" name="amenities" id="hair-dryer" value="Hair Dryer">
+                        Hair Dryer
+                      </label>
+                      <label for="laundry">
+                        <input type="checkbox" name="amenities" id="laundry" value="Laundry">
+                        Laundry
+                      </label>
+                      <label for="wifi">
+                        <input type="checkbox" name="amenities" id="wifi" value="Wifi">
+                        Wifi
+                      </label>
+                      <label for="air-conditioning">
+                        <input type="checkbox" name="amenities" id="air-conditioning" value="Air Conditioning">
+                        Air Conditioning
+                      </label>
+                      <label for="heat">
+                        <input type="checkbox" name="amenities" id="heat" value="Heat">
+                        Heat
+                      </label>                      
+                  <!-- </select> -->
+                  <br>
+                  <br>
+                  <label for="exampleFormControlSelect1" id="photos">Photos:</label>
                   <br>
                   <div class="container py-3">
                     <input type="file" id="mypic-input" accept="image/*" />
@@ -109,7 +141,7 @@
               </div>
               <br>
               <div class="d-flex justify-content-end">
-                  <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button>
+                  <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writePosts()">Submit</button>
               </div>
       </form>
   </div>
