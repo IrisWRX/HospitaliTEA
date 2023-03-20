@@ -65,7 +65,11 @@ app.get("/profile.html", function (req, res) {
 
 app.get('/footer.html', (req, res) => {
     res.sendFile(__dirname + '/text/footer.html');
-  });
+});
+
+app.get('/navbar.html', (req, res) => {
+    res.sendFile(__dirname + '/text/navbar.html');
+});
 
 // for resource not found (i.e., 404)
 app.use(function (req, res, next) {
