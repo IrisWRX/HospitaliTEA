@@ -4,7 +4,8 @@ body {
   flex-direction: column;
   background: linear-gradient( #ffffff, #84dec4, #3fdabb);
   padding-top: 90px;
-  overflow: auto;
+  overflow: scroll;
+  padding-bottom: 90px;
 }
 
 .btn {
@@ -16,6 +17,7 @@ body {
   border-color: #17a2b8;
   color: #fff;
 }
+
 
 
 /* .container {
