@@ -18,7 +18,10 @@ function showMap() {
       .then((response) => response.json())
       .then((data) => {
         if (data.features && data.features.length > 0) {
-          return data.features[0].geometry.coordinates;
+          return {
+            lat: data.features[0].center[1],
+            lng: data.features[0].center[0],
+          };
         } else {
           return null;
         }

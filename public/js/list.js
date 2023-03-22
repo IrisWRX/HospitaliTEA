@@ -1,3 +1,26 @@
+async function fetchCoordinatesFromAddress(address, accessToken) {
+  const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+    address
+  )}.json?access_token=${accessToken}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    if (data.features && data.features.length > 0) {
+      const coordinates = {
+        lng: data.features[0].center[0],
+        lat: data.features[0].center[1],
+      };
+      return coordinates;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching coordinates:", error);
+    return null;
+  }
+}
+
 async function getImageUrl(folder, imageName) {
   const storageRef = firebase.storage().ref();
   const imageRef = storageRef.child(`${folder}/${imageName}`);
@@ -43,18 +66,31 @@ async function displayCardsDynamically(collection) {
     .get()
     .then(async (allPosts) => {
       // Calculate distances and sort shelters
-      const sheltersWithDistances = allPosts.docs
-        .map((doc) => {
-          const lat = doc.data().lat;
-          const lng = doc.data().lng;
-          const distance = calculateDistance(
-            userLocation.lat,
-            userLocation.lon,
-            lat,
-            lng
-          );
-          return { doc, distance };
-        })
+      const sheltersWithDistances = (
+        await Promise.all(
+          allPosts.docs.map(async (doc) => {
+            const address = doc.data().address;
+            const coordinates = await fetchCoordinatesFromAddress(
+              address,
+              "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ"
+            );
+
+            if (coordinates) {
+              const distance = calculateDistance(
+                userLocation.lat,
+                userLocation.lon,
+                coordinates.lat,
+                coordinates.lng
+              );
+
+              return { doc, distance };
+            } else {
+              return null;
+            }
+          })
+        )
+      )
+        .filter((shelter) => shelter !== null)
         .sort((a, b) => a.distance - b.distance);
 
       // Display sorted shelters
@@ -63,7 +99,7 @@ async function displayCardsDynamically(collection) {
         const formattedTitle = `Hosted by ${doc.data().name}`;
         // const status = doc.data().status;
         const formattedStatus = `Status: ${doc.data().status}`;
-        const formattedDistance = `Distance: ${distance.toFixed(8)} km`;
+        const formattedDistance = `Distance: ${distance.toFixed(2)} km`;
         let newcard = cardTemplate.content.cloneNode(true);
 
         newcard.querySelector(".card-title").innerHTML = formattedTitle;
