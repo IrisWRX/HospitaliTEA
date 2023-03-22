@@ -57,8 +57,8 @@ function showMap() {
               );
 
               if (coordinates) {
-                const post_name = doc.data().name;
-                const status = doc.data().status;
+                const post_name = `Hosted by ${doc.data().name}`;
+                const status = `Status: ${doc.data().status}`;
 
                 // Pushes information into the features array
                 features.push({

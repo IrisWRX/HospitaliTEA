@@ -59,14 +59,16 @@ async function displayCardsDynamically(collection) {
 
       // Display sorted shelters
       for (const { doc, distance } of sheltersWithDistances) {
-        const title = doc.data().name;
-        const status = doc.data().status;
+        // const title = doc.data().name;
+        const formattedTitle = `Hosted by ${doc.data().name}`;
+        // const status = doc.data().status;
+        const formattedStatus = `Status: ${doc.data().status}`;
         const formattedDistance = `Distance: ${distance.toFixed(8)} km`;
         let newcard = cardTemplate.content.cloneNode(true);
 
-        newcard.querySelector(".card-title").innerHTML = title;
+        newcard.querySelector(".card-title").innerHTML = formattedTitle;
         newcard.querySelector(".card-distance").innerHTML = formattedDistance;
-        newcard.querySelector(".card-status").innerHTML = status;
+        newcard.querySelector(".card-status").innerHTML = formattedStatus;
         const imageUrl = await getImageUrl("images", `${doc.id}.jpg`);
         newcard.querySelector(".card-img").src = imageUrl;
 
