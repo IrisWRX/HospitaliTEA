@@ -90,6 +90,12 @@ body {
     margin-top: 15px;
 }
 
+.address,
+.status {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
 @media screen and (min-width: 768px) {
     .container {
         padding: 40px;
@@ -107,4 +113,11 @@ body {
     .contact-btn {
         font-size: 18px;
     }
+
+    .address,
+    .status {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
 }

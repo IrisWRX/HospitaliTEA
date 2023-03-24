@@ -71,9 +71,11 @@ function showMap() {
                   },
                   geometry: {
                     type: "Point",
-                    coordinates: [coordinates[0], coordinates[1]],
+                    coordinates: [coordinates.lng, coordinates.lat],
                   },
                 });
+                // Log the generated URL
+                console.log(`Generated URL: /information?id=${doc.id}`);
               }
             }
 
