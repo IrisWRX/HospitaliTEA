@@ -4,10 +4,13 @@ function goBack() {
 
 // Get the document ID from the URL
 const urlParams = new URLSearchParams(window.location.search);
-const documentId = urlParams.get("id");
+const userId = urlParams.get("userId");
+const postId = urlParams.get("postId");
 
-db.collection("posts")
-  .doc(documentId)
+db.collection("users")
+  .doc(userId)
+  .collection("posts")
+  .doc(postId)
   .get()
   .then((doc) => {
     if (doc.exists) {
