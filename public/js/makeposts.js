@@ -26,7 +26,9 @@ function writePosts() {
       //get the document for current user.
       currentUser.get().then((userDoc) => {
         var userEmail = userDoc.data().email;
-        db.collection("posts")
+
+        currentUser
+          .collection("posts") // create a subcollection called "posts" under the current user document
           .add({
             name: Name,
             address: Address,

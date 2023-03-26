@@ -1,11 +1,11 @@
-.navbar-brand {
+/* .navbar-brand {
     margin-left: 10px;
 }
 
 .navbar-brand {
     font-family: 'Itim', cursive;
     font-size: 2.25rem;
-}
+} */
 
 /* #back{
     background-image: url('../images/tea1.jpeg');
@@ -22,26 +22,26 @@
 } */
 
 body {
-    background: linear-gradient(to bottom, #ffffff, #84dec4, #3fdabb);
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  background: linear-gradient(to bottom, #ffffff, #84dec4, #3fdabb);
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 header {
-    text-align: center; 
-    padding: 20px; 
-  }
-  
-  .logo-container {
-    display: inline-block; 
-  }
-  
-  .logo {
-    max-width: 100%; 
-  }
-  
-  #firebaseui-auth-container, #loader {
-    margin-top: 10px; 
-    padding-top: 10px;
-  }
+  text-align: center;
+  padding: 20px;
+}
+
+.logo-container {
+  display: inline-block;
+}
+
+.logo {
+  max-width: 100%;
+}
+
+#firebaseui-auth-container, #loader {
+  margin-top: 10px;
+  padding-top: 10px;
+}

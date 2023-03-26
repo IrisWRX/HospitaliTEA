@@ -34,7 +34,6 @@
   
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="/css/showposts.css" />
-    <link rel="stylesheet" href="/css/style.css"/>
   
     <!-- Firebase 8 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -60,14 +59,15 @@
     <!------------------------------>
 
     <!-- our own navbar goes here -->
-    <nav id="navbarPlaceholder"></nav>
+    <nav class="navbar fixed-top navbar-light bg-light">
+      <div class="container d-flex justify-content-center">
+        <a class="navbar-brand" href="showposts.html">My Posts</a>
+      </div>
+    </nav>
 
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div class="container">
-      <!-- <br> -->
-      <h1>List your place</h1>
-      <!-- <br> -->
       <form id="post-form">
           <div class="form-group">
               <label for="exampleFormControlInput1">Your name:</label>
@@ -86,9 +86,6 @@
               <select class="form-control" id="status">
                   <option>available</option>
                   <option>unavailable</option>
-                  <!-- <option>3 spots left</option>
-                  <option>4 spots left</option>
-                  <option>5 spots left</option> -->
               </select>
               <div class="form-group">
                   <label for="exampleFormControlSelect1" id="amenities">Amenities:</label>
@@ -145,7 +142,8 @@
     <script src="/js/authentication.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/showposts.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntX5" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
 </body>
 
 </html>
