@@ -46,39 +46,43 @@ function showMap() {
         // Add the image to the map style.
         map.addImage("eventpin", image); // Pin Icon
 
-        // READING information from "events" collection in Firestore
-        db.collection("posts")
+        // Read all user documents from the "users" collection
+        db.collection("users")
           .get()
-          .then(async (allEvents) => {
+          .then(async (allUsers) => {
             const features = []; // Defines an empty array for information to be added to
 
-            for (const doc of allEvents.docs) {
-              const address = doc.data().address;
-              const coordinates = await fetchCoordinatesFromAddress(
-                address,
-                "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ" // Replace with your Mapbox access token
-              );
+            for (const userDoc of allUsers.docs) {
+              // Read posts from the "posts" subcollection of the current user
+              const allEvents = await userDoc.ref.collection("posts").get();
+              for (const doc of allEvents.docs) {
+                const address = doc.data().address;
+                const coordinates = await fetchCoordinatesFromAddress(
+                  address,
+                  "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ" // Replace with your Mapbox access token
+                );
 
-              if (coordinates) {
-                const post_name = `Hosted by ${doc.data().name}`;
-                const status = `Status: ${doc.data().status}`;
+                if (coordinates) {
+                  const post_name = `Hosted by ${doc.data().name}`;
+                  const status = `Status: ${doc.data().status}`;
 
-                // Pushes information into the features array
-                features.push({
-                  type: "Feature",
-                  properties: {
-                    description: `<strong>${post_name}</strong><p>${status}</p> <br> <a href="/information?id=${doc.id}" target="_blank" title="Opens in a new window">Read more</a>`,
-                  },
-                  geometry: {
-                    type: "Point",
-                    coordinates: [coordinates.lng, coordinates.lat],
-                  },
-                });
-                // Log the generated URL
-                console.log(`Generated URL: /information?id=${doc.id}`);
+                  // Pushes information into the features array
+                  features.push({
+                    type: "Feature",
+                    properties: {
+                      description: `<strong>${post_name}</strong><p>${status}</p> <br> <a href="/information?userId=${userDoc.id}&postId=${doc.id}" target="_blank" title="Opens in a new window">Read more</a>`,
+                    },
+                    geometry: {
+                      type: "Point",
+                      coordinates: [coordinates.lng, coordinates.lat],
+                    },
+                  });
+                  console.log(
+                    `Generated URL: /information?userId=${userDoc.id}&postId=${doc.id}`
+                  );
+                }
               }
             }
-
             // Adds features as a source to the map
             map.addSource("places", {
               type: "geojson",
@@ -128,81 +132,82 @@ function showMap() {
               map.getCanvas().style.cursor = "";
             });
           });
-      }
-    );
 
-    // Add the image to the map style.
-    map.loadImage(
-      "https://cdn-icons-png.flaticon.com/512/61/61168.png",
-      (error, image) => {
-        if (error) throw error;
+        // Add the image to the map style.
+        map.loadImage(
+          "https://cdn-icons-png.flaticon.com/512/61/61168.png",
+          (error, image) => {
+            if (error) throw error;
 
-        // Add the image to the map style with width and height values
-        map.addImage("userpin", image, { width: 10, height: 10 });
+            // Add the image to the map style with width and height values
+            map.addImage("userpin", image, { width: 10, height: 10 });
 
-        // Adds user's current location as a source to the map
-        navigator.geolocation.getCurrentPosition((position) => {
-          const userLocation = [
-            position.coords.longitude,
-            position.coords.latitude,
-          ];
-          console.log(userLocation);
-          if (userLocation) {
-            map.addSource("userLocation", {
-              type: "geojson",
-              data: {
-                type: "FeatureCollection",
-                features: [
-                  {
-                    type: "Feature",
-                    geometry: {
-                      type: "Point",
-                      coordinates: userLocation,
-                    },
-                    properties: {
-                      description: "Your location",
-                    },
+            // Adds user's current location as a source to the map
+            navigator.geolocation.getCurrentPosition((position) => {
+              const userLocation = [
+                position.coords.longitude,
+                position.coords.latitude,
+              ];
+              console.log(userLocation);
+              if (userLocation) {
+                map.addSource("userLocation", {
+                  type: "geojson",
+                  data: {
+                    type: "FeatureCollection",
+                    features: [
+                      {
+                        type: "Feature",
+                        geometry: {
+                          type: "Point",
+                          coordinates: userLocation,
+                        },
+                        properties: {
+                          description: "Your location",
+                        },
+                      },
+                    ],
                   },
-                ],
-              },
-            });
+                });
 
-            // Creates a layer above the map displaying the user's location
-            map.addLayer({
-              id: "userLocation",
-              type: "symbol",
-              source: "userLocation",
-              layout: {
-                "icon-image": "userpin", // Pin Icon
-                "icon-size": 0.05, // Pin Size
-                "icon-allow-overlap": true, // Allows icons to overlap
-              },
-            });
+                // Creates a layer above the map displaying the user's location
+                map.addLayer({
+                  id: "userLocation",
+                  type: "symbol",
+                  source: "userLocation",
+                  layout: {
+                    "icon-image": "userpin", // Pin Icon
+                    "icon-size": 0.05, // Pin Size
+                    "icon-allow-overlap": true, // Allows icons to overlap
+                  },
+                });
 
-            // Map On Click function that creates a popup displaying the user's location
-            map.on("click", "userLocation", (e) => {
-              // Copy coordinates array.
-              const coordinates = e.features[0].geometry.coordinates.slice();
-              const description = e.features[0].properties.description;
+                // Map On Click function that creates a popup displaying the user's location
+                map.on("click", "userLocation", (e) => {
+                  // Copy coordinates array.
+                  const coordinates =
+                    e.features[0].geometry.coordinates.slice();
+                  const description = e.features[0].properties.description;
 
-              new mapboxgl.Popup()
-                .setLngLat(coordinates)
-                .setHTML(description)
-                .addTo(map);
-            });
+                  new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
+                });
 
-            // Change the cursor to a pointer when the mouse is over the userLocation layer.
-            map.on("mouseenter", "userLocation", () => {
-              map.getCanvas().style.cursor = "pointer";
-            });
+                // Change the cursor to a pointer when the mouse is over the userLocation layer.
+                map.on("mouseenter", "userLocation", () => {
+                  map.getCanvas().style.cursor = "pointer";
+                });
 
-            // Defaults
-            // Defaults cursor when not hovering over the userLocation layer
-            map.on("mouseleave", "userLocation", () => {
-              map.getCanvas().style.cursor = "";
+                // Defaults
+                // Defaults cursor when not hovering over the userLocation layer
+                map.on("mouseleave", "userLocation", () => {
+                  map.getCanvas().style.cursor = "";
+                });
+              }
             });
           }
-        });
+        );
       }
     );
   });
