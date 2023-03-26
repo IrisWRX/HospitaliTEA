@@ -46,10 +46,15 @@ app.get("/information", function (req, res) {
   res.send(doc);
 });
 
-app.get("/post.html", function (req, res) {
+app.get("/makeposts.html", function (req, res) {
   //console.log(process.env);
   // retrieve and send an HTML document from the file system
-  let doc = fs.readFileSync("./app/html/makeAPost.html", "utf8");
+  let doc = fs.readFileSync("./app/html/makeposts.html", "utf8");
+  res.send(doc);
+});
+
+app.get("/showposts.html", function (req, res) {
+  let doc = fs.readFileSync("./app/html/showposts.html", "utf8");
   res.send(doc);
 });
 

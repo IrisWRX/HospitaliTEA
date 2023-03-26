@@ -1,0 +1,106 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: linear-gradient( #ffffff, #84dec4, #3fdabb);
+  padding-top: 90px;
+  overflow: scroll;
+  padding-bottom: 90px;
+}
+
+.btn {
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: #fff;
+}
+
+
+
+/* .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .job-application {
+    border: 1px solid #dddddd;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+  }
+  
+  .job-application p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .job-application ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  
+  .job-application li {
+    margin-bottom: 5px;
+  }
+  
+  .job-application h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #609966;
+    text-align: center;
+  }
+  
+  .job-application input[type="text"],
+  .job-application input[type="email"],
+  .job-application input[type="tel"],
+  .job-application textarea,
+  #status, #status-editview {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+  }
+  
+  .job-application label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .job-application .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .job-application .input-group label {
+    display: block;
+  }
+  
+  .job-application .input-group input[type="text"],
+  .job-application .input-group input[type="email"],
+  .job-application .input-group input[type="tel"] {
+    margin-top: 10px;
+  }
+  
+  .job-application button[type="submit"] {
+    background-color: #9DC08B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .job-application button[type="submit"]:hover {
+    background-color: #609966;
+  }
+  
+  .btn-container {
+    text-align: center;
+  } */
