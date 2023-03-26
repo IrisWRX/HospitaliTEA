@@ -1,13 +1,14 @@
 //------------------------------------------------
 // Call this function when the "logout" button is clicked
 //-------------------------------------------------
-function logout() {
-    firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        window.location='login.html';
-        console.log("logging out user");
+
+// function logout() {
+//     firebase.auth().signOut().then(() => {
+//         // Sign-out successful.
+//         window.location='login.html';
+//         console.log("logging out user");
         
-      }).catch((error) => {
-        // An error happened.
-      });
-}
+//       }).catch((error) => {
+//         // An error happened.
+//       });
+// }
