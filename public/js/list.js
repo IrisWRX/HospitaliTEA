@@ -72,6 +72,7 @@ async function displayCardsDynamically(collection) {
             return {
               ...postDoc.data(),
               id: postDoc.id,
+              userId: userDoc.id,
               userName: userDoc.data().name,
             };
           });
@@ -145,9 +146,11 @@ async function displayCardsDynamically(collection) {
 
         // Attach the event listener to the new card element
         newcard.querySelector(".card1").addEventListener("click", () => {
-          const docId = post.id;
+          // const userId = userDoc.id; // assuming you have access to the userDoc in this part of your code
+          // const postId = doc.id;
           // Take the user to a new page where they can view more information about the document
-          window.location.href = `information?id=${docId}`;
+          // window.location.href = `information?userId=${userDoc.id}&postId=${doc.id}`;
+          window.location.href = `information?userId=${post.userId}&postId=${post.id}`;
         });
 
         document.getElementById("posts-go-here").appendChild(newcard);
