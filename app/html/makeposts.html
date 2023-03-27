@@ -65,69 +65,54 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div class="container">
-      <!-- <br> -->
+
       <h1>List your place</h1>
-      <!-- <br> -->
+
       <form id="post-form">
-          <div class="form-group">
-              <label for="exampleFormControlInput1">Your name:</label>
-              <input type="text" class="form-control" id="name">
-          </div>
-          <div class="form-group">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Your name:</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
             <label for="exampleFormControlInput1">Address:</label>
             <input type="text" class="form-control" id="address">
         </div>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Email: </label>
-          <input type="text" class="form-control" id="email">
-      </div>
-          <div class="form-group">
-              <label for="exampleFormControlSelect1">Status:</label>
-              <select class="form-control" id="status">
-                  <option>available</option>
-                  <option>unavailable</option>
-              </select>
-              <div class="form-group">
-                  <label for="exampleFormControlSelect1" id="amenities">Amenities:</label>
-                      <label for="clothes">
-                        <input type="checkbox" name="amenities" id="clothes" value="Clothes">
-                        Clothes
-                      </label>
-                      <label for="food">
-                        <input type="checkbox" name="amenities" id="food" value="Food">
-                        Food
-                      </label>
-                      <label for="hair-dryer">
-                        <input type="checkbox" name="amenities" id="hair-dryer" value="Hair Dryer">
-                        Hair Dryer
-                      </label>
-                      <label for="laundry">
-                        <input type="checkbox" name="amenities" id="laundry" value="Laundry">
-                        Laundry
-                      </label>
-                      <label for="wifi">
-                        <input type="checkbox" name="amenities" id="wifi" value="Wifi">
-                        Wifi
-                      </label>
-                      <label for="air-conditioning">
-                        <input type="checkbox" name="amenities" id="air-conditioning" value="Air Conditioning">
-                        Air Conditioning
-                      </label>
-                      <label for="heat">
-                        <input type="checkbox" name="amenities" id="heat" value="Heat">
-                        Heat
-                      </label>                      
-                  <label for="exampleFormControlSelect1" id="photos">Photos:</label>
-                  <div class="container py-3">
-                    <img id="mypic-goes-here" width=100 height=100 />
-                    <input type="file" id="mypic-input" accept="image/*" />
-                  </div>
-              </div>
-              <div class="d-flex justify-content-end">
-                  <button type="submit" class="btn btn-lg btn-primary pull-right">Submit</button>
-              </div>
-      </form>
-  </div>
+            <label for="exampleFormControlInput1">Email: </label>
+            <input type="text" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Status:</label>
+            <select class="form-control" id="status">
+                <option>available</option>
+                <option>unavailable</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Amenities:</label>
+            <select class="form-control" id="amenities" multiple="multiple">
+                <option value="Clothes">Clothes</option>
+                <option value="Food">Food</option>
+                <option value="Hair Dryer">Hair Dryer</option>
+                <option value="Laundry">Laundry</option>
+                <option value="Wifi">Wifi</option>
+                <option value="Air Conditioning">Air Conditioning</option>
+                <option value="Heat">Heat</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1" id="photos">Photos:</label>
+            <div class="container py-3">
+                <img id="mypic-goes-here" width=100 height=100 />
+                <input type="file" id="mypic-input" accept="image/*" />
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-lg btn-primary pull-right">Submit</button>
+        </div>
+    </form>
+    
+   
   
   <!-- our own footer goes here-->
     <footer id="footerPlaceholder"></footer>
@@ -136,6 +121,38 @@
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
+ <!-- Include the necessary libraries -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet" />
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
+ 
+ <script>
+    $(document).ready(function() {
+    // Initialize the Select2 plugin
+    $('#amenities').select2({
+        placeholder: 'Select amenities',
+        allowClear: true,
+        templateSelection: function(data, container) {
+            // Add a checkbox to each selected option
+            if (data.selected) {
+                $(container).prepend('<input type="checkbox" checked />');
+            }
+            return data.text;
+        },
+        templateResult: function(data) {
+            // Display the checkboxes in the dropdown
+            var $result = $('<span></span>');
+            var $checkbox = $('<input type="checkbox" />').prop('checked', data.selected);
+            
+            $result.append($checkbox);
+            $result.append(' ' + data.text);
+            
+            return $result;
+        }
+    });
+});
+
+ </script>
     <script src="/js/firebaseAPI_HospitaliTea.js"></script>
     <script src="/js/skeleton.js"></script>
     <script src="/js/script.js"></script>

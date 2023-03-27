@@ -6,7 +6,7 @@ function showMap() {
     container: "map", // Container ID
     style: "mapbox://styles/mapbox/streets-v11", // Styling URL
     center: [-123.00084927333764, 49.24961675108895], // Starting position
-    zoom: 8, // Starting zoom
+    zoom: 10, // Starting zoom
   });
 
   function fetchCoordinatesFromAddress(address, accessToken) {
