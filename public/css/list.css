@@ -80,6 +80,12 @@ body {
     font-weight: bold;
 }
 
+.container {
+    height: calc(100vh - 170px);
+    overflow-y: scroll;
+    overscroll-behavior: contain;
+}
+
 @media (min-width: 992px) {
     .container {
         max-width: 1200px;
