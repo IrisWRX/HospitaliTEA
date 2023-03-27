@@ -12,9 +12,10 @@
   }
 
   #shelter-btn {
-      background-color: #44ceb0;
+      background-color: white;
       border: none;
-      color: white;
+      color: black;
+      /* font-weight: bold; */
       padding: 5px;
       text-decoration: none;
       display: flex;
@@ -26,7 +27,7 @@
       cursor: pointer;
       border-radius: 10px;
       padding: 10px 20px;
-     
+
   }
 
   #btn-name {
