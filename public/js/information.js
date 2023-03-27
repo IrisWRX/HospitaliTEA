@@ -52,10 +52,6 @@ db.collection("users")
         amenitiesList.appendChild(listItem);
       });
       document.getElementById("shelter-amenities").appendChild(amenitiesList);
-      // // Display the email
-      // document.getElementById(
-      //   "shelter-email"
-      // ).innerHTML = `<strong>Email:</strong> ${data.email}`;
     } else {
       console.log("No such document!");
     }
