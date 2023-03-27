@@ -30,6 +30,9 @@ body {
     padding: 20px;
     margin-top: 27px;
     border-radius: 5px;
+    height: calc(100vh - 110px);
+    overflow-y: scroll;
+    overscroll-behavior: contain;
 }
 
 .shelter-image {
