@@ -52,11 +52,10 @@ db.collection("users")
         amenitiesList.appendChild(listItem);
       });
       document.getElementById("shelter-amenities").appendChild(amenitiesList);
-
-      // Display the email
-      document.getElementById(
-        "shelter-email"
-      ).innerHTML = `<strong>Email:</strong> ${data.email}`;
+      // // Display the email
+      // document.getElementById(
+      //   "shelter-email"
+      // ).innerHTML = `<strong>Email:</strong> ${data.email}`;
     } else {
       console.log("No such document!");
     }
@@ -64,3 +63,39 @@ db.collection("users")
   .catch((error) => {
     console.log("Error getting document:", error);
   });
+
+document.getElementById("contact-btn").addEventListener("click", () => {
+  contactNow(userId);
+});
+//------------------------------------------------
+// This function will find out who is logged,
+// And find out the owner's name and email
+// Call the user's mail client to send an email.
+//-------------------------------------------------
+function contactNow(owner) {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (owner != user.uid) {
+      db.collection("users")
+        .doc(owner)
+        .get()
+        .then((doc) => {
+          const ownerName = doc.data().name;
+          const ownerEmail = doc.data().email;
+
+          window.open(
+            "mailto:" +
+              ownerEmail +
+              "?subject=Applying for your job&body=" +
+              "Dear " +
+              ownerName +
+              " ... " +
+              "Sincerely, " +
+              user.displayName
+          );
+          alert("The host will be alerted!");
+        });
+    } else {
+      alert("You cannot request the stay in this shelter!");
+    }
+  });
+}
