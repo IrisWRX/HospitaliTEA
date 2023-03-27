@@ -7,7 +7,7 @@ body {
     top: 15px;
     left: 6px;
     padding: 10px;
-    color: #333;
+    color: #484848;
     border: none;
     background: none;
     cursor: pointer;
@@ -25,15 +25,15 @@ body {
     margin-left: 18px;
     font-size: larger;
     font-weight: bolder;
-    color: #333;
+    color: #484848;
     margin-bottom: 5px;
 }
 
 .card1 {
     display: flex;
     align-items: center;
-    padding: 6.5px 16px 6.5px 16px;
-    border: 2px solid #a3ebe3;
+    padding: 6.5px 13px 6.5px 13px;
+    border: 3px solid #a3ebe3;
     border-radius: 5px;
     margin-bottom: 10px;
 }

@@ -2,13 +2,32 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: linear-gradient( #ffffff, #84dec4, #3fdabb);
-  padding-top: 90px;
+  /* background: linear-gradient(#ffffff, #84dec4, #3fdabb); */
+  padding-top: 70px;
   overflow: scroll;
   padding-bottom: 90px;
 }
 
-.btn {
+.bg-custom {
+  background-color: #a3ebe3;
+  color: #484848;
+  font-weight: 500;
+}
+
+.custom-submit {
+  background-color: #a3ebe3;
+  color: #484848;
+  font-size: 17px;
+  padding-top: 3px;
+  padding-bottom: 4px;
+}
+
+#mypic-goes-here {
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+/* .btn {
   border-radius: 25px;
   padding: 10px 20px;
   font-size: 16px;
@@ -16,7 +35,7 @@ body {
   background-color: #17a2b8;
   border-color: #17a2b8;
   color: #fff;
-}
+} */
 
 
 

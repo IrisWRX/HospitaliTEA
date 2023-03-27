@@ -15,7 +15,7 @@ function displayUserPosts() {
       const post = doc.data();
       const card = postCardTemplate.content.cloneNode(true);
 
-      card.querySelector(".card-title").textContent = `Hosted by ${post.name}`;
+      card.querySelector(".card-title").textContent = `Hosted by you`;
       card.querySelector(".card-status").textContent = post.status;
       card.querySelector(".card-img-top").src =
         post.image || "https://via.placeholder.com/150";

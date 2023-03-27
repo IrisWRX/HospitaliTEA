@@ -3,7 +3,7 @@
     top: 10px;
     left: 6px;
     padding: 10px;
-    color: #333;
+    color: #484848;
     border: none;
     background: none;
     cursor: pointer;
@@ -21,7 +21,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: #484848;
 }
 
 .container {
@@ -43,12 +43,11 @@ body {
 }
 
 .shelter-title {
-    margin-top: 60px;
-    margin-left: 18px;
-    font-size: larger;
-    font-weight: bolder;
-    color: #333;
-    margin-bottom: 5px;
+    font-size: 24px;
+    margin-top: 15px;
+    color: #484848;
+    font-weight: bold;
+    margin-bottom: 17px;
 }
 
 .amenities {
@@ -71,15 +70,15 @@ body {
 #contact-btn {
     padding: 7px 55px;
     font-size: 16px;
-    color: white;
-    background-color: #6ed9c2;
+    color: #484848;
+    background-color: #a3ebe3;
     border: none;
     border-radius: 3px;
     cursor: pointer;
 }
 
 #contact-btn:hover {
-    background-color: #4db897;
+    background-color: #a3ebe3;
 }
 
 .amenities {
@@ -97,7 +96,8 @@ body {
 .address,
 .status {
     font-size: 14px;
-    margin-bottom: 5px;
+    margin: 0;
+    padding: 0;
 }
 
 @media screen and (min-width: 768px) {
@@ -113,15 +113,8 @@ body {
         font-size: 18px;
     }
 
-    .direction-btn,
     .contact-btn {
         font-size: 18px;
-    }
-
-    .address,
-    .status {
-        font-size: 14px;
-        margin-bottom: 5px;
     }
 
 }
