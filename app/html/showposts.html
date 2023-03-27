@@ -68,65 +68,22 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div class="container">
-      <form id="post-form">
-          <div class="form-group">
-              <label for="exampleFormControlInput1">Your name:</label>
-              <input type="text" class="form-control" id="name">
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Address:</label>
-            <input type="text" class="form-control" id="address">
+      <div class="row" id="posts-go-here"></div>
+      <template id="postCardTemplate">
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Name</h5>
+                    <!-- <p class="card-address">Address</p>
+                    <p class="card-email">Email</p>
+                    <p class="card-amenities">Amenities</p> -->
+                    <p>Status: <span class="card-status">Open</span></p>
+                    <button class="btn btn-primary change-status-btn">Change Status</button>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Email: </label>
-          <input type="text" class="form-control" id="email">
-      </div>
-          <div class="form-group">
-              <label for="exampleFormControlSelect1">Status:</label>
-              <select class="form-control" id="status">
-                  <option>available</option>
-                  <option>unavailable</option>
-              </select>
-              <div class="form-group">
-                  <label for="exampleFormControlSelect1" id="amenities">Amenities:</label>
-                      <label for="clothes">
-                        <input type="checkbox" name="amenities" id="clothes" value="Clothes">
-                        Clothes
-                      </label>
-                      <label for="food">
-                        <input type="checkbox" name="amenities" id="food" value="Food">
-                        Food
-                      </label>
-                      <label for="hair-dryer">
-                        <input type="checkbox" name="amenities" id="hair-dryer" value="Hair Dryer">
-                        Hair Dryer
-                      </label>
-                      <label for="laundry">
-                        <input type="checkbox" name="amenities" id="laundry" value="Laundry">
-                        Laundry
-                      </label>
-                      <label for="wifi">
-                        <input type="checkbox" name="amenities" id="wifi" value="Wifi">
-                        Wifi
-                      </label>
-                      <label for="air-conditioning">
-                        <input type="checkbox" name="amenities" id="air-conditioning" value="Air Conditioning">
-                        Air Conditioning
-                      </label>
-                      <label for="heat">
-                        <input type="checkbox" name="amenities" id="heat" value="Heat">
-                        Heat
-                      </label>                      
-                  <label for="exampleFormControlSelect1" id="photos">Photos:</label>
-                  <div class="container py-3">
-                    <img id="mypic-goes-here" width=100 height=100 />
-                    <input type="file" id="mypic-input" accept="image/*" />
-                  </div>
-              </div>
-              <div class="d-flex justify-content-end">
-                  <button type="submit" class="btn btn-lg btn-primary pull-right">Submit</button>
-              </div>
-      </form>
+    </template>
   </div>
 
     <!-- our own footer goes here-->
