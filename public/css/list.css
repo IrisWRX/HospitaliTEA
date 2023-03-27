@@ -4,7 +4,7 @@ body {
 
 .back-btn {
     position: absolute;
-    top: 20px;
+    top: 15px;
     left: 6px;
     padding: 10px;
     color: #333;
@@ -21,7 +21,7 @@ body {
 }
 
 #shelters {
-    margin-top: 60px;
+    margin-top: 50px;
     margin-left: 18px;
     font-size: larger;
     font-weight: bolder;
@@ -32,7 +32,10 @@ body {
 .card1 {
     display: flex;
     align-items: center;
-    padding: 10px 16px 3px 16px;
+    padding: 6.5px 16px 6.5px 16px;
+    border: 2px solid #a3ebe3;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .card2 {
