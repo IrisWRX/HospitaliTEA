@@ -1,0 +1,32 @@
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.logo-container {
+    padding-left: 15%;
+    padding-top: 10%;
+}
+
+.logo {
+    max-width: 80%;
+    height: 50%;
+}
+
+h1 {
+    color: #484848;
+    font-size: 23px;
+    text-align: center;
+}
+
+p {
+    color: #484848;
+    font-size: 13px;
+    text-align: center;
+}
+
+#firebaseui-auth-container, #loader {
+    margin-top: 10px;
+    padding-top: 10px;
+}

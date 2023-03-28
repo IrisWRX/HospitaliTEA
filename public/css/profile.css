@@ -79,7 +79,7 @@ input:checked+.slider:before {
 
 .btn-secondary {
   background-color: #555;
-  border-color: #d8bbbb;
+  border-color: #555;
   color: #fff;
 }
 
