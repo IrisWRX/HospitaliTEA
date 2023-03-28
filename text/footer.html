@@ -36,6 +36,61 @@
   .nav-item.dropdown .nav-link::after {
     display: none;
   }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 14pt;
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  #confirm-btn {
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #fff;
+  }
+
+  #cancel-btn {
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #505c5e;
+    border-color: #17a2b8;
+    color: #fff;
+  }
 </style>
 
 <nav class="footer fixed-bottom navbar-expand-sm navbar-light bg-light">
@@ -91,10 +146,15 @@
               ><i class="fa-solid fa-user"></i> Profile</a
             >
           </li>
-          <li>
+          <!-- <li>
             <a class="dropdown-item" href="#" onclick="logout();"
               ><i class="fa-solid fa-sign-out"></i> Log Out</a
             >
+          </li> -->
+          <li>
+            <a class="dropdown-item" href="#">
+              <i class="fa-solid fa-sign-out"></i> Log Out
+            </a>
           </li>
         </ul>
       </li>

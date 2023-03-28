@@ -1,15 +1,14 @@
+body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  padding-top: 70px;
+}
+
 .bg-custom {
   background-color: #a3ebe3;
   color: #484848;
   font-weight: 500;
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  /* background: linear-gradient(#ffffff, #84dec4, #3fdabb); */
-  padding-top: 90px;
 }
 
 .switch {

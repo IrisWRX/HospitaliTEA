@@ -74,6 +74,94 @@
           </div>
 
           <div class="form-group">
+            <label>Gender</label>
+            <select id="genderInput" class="form-control">
+              <option selected>Choose...</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Birthday</label>
+            <input type="date" id="birthdayInput" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label>Work</label>
+            <input
+              type="text"
+              id="workInput"
+              class="form-control"
+              placeholder="Enter your work"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input
+              type="tel"
+              id="phoneInput"
+              class="form-control"
+              placeholder="Enter your phone number"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="email"
+              id="emailInput"
+              class="form-control"
+              placeholder="Enter your email"
+            />
+          </div>
+        </fieldset>
+        <div class="d-flex justify-content-end mt-5">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="editUserInfo()"
+          >
+            Edit
+          </button>
+          <span style="width: 10px"></span>
+          <button type="button" class="btn btn-info" onclick="saveUserInfo()">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+    <footer id="footerPlaceholder"></footer>
+    <!------------------------------>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+
+    <!-- Link to scripts of your own -->
+    <script src="/js/firebaseAPI_HospitaliTea.js"></script>
+    <script src="/js/skeleton.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/authentication.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/profile.js"></script>
+  </body>
+</html>
+
+<!-- <fieldset class="mb-3" id="personalInfoFields" disabled>
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              id="nameInput"
+              class="form-control"
+              placeholder="Enter your name"
+            />
+          </div>
+
+          <div class="form-group">
             <label for="inputAddress">Address 1</label>
             <input
               type="text"
@@ -136,8 +224,8 @@
               />
             </div>
           </div>
-        </fieldset>
-        <div class="d-flex justify-content-end mt-5">
+        </fieldset> -->
+<!-- <div class="d-flex justify-content-end mt-5">
           <button
             type="button"
             class="btn btn-secondary"
@@ -150,22 +238,4 @@
             Save
           </button>
         </div>
-      </form>
-    </div>
-
-    <footer id="footerPlaceholder"></footer>
-    <!------------------------------>
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-
-    <!-- Link to scripts of your own -->
-    <script src="/js/firebaseAPI_HospitaliTea.js"></script>
-    <script src="/js/skeleton.js"></script>
-    <script src="/js/script.js"></script>
-    <script src="/js/authentication.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/profile.js"></script>
-  </body>
-</html>
+      </form> -->
