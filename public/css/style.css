@@ -1,26 +1,3 @@
-/* .navbar-brand {
-    margin-left: 10px;
-}
-
-.navbar-brand {
-    font-family: 'Itim', cursive;
-    font-size: 2.25rem;
-} */
-
-/* #back{
-    background-image: url('../images/tea1.jpeg');
-} */
-
-/* #message{
-    color: rgb(111, 170, 22);
-    font-size: 18pt;
-}
-
-#welcome{
-    color: rgb(111, 170, 22);
-    font-size: 42pt;
-} */
-
 body {
   background: linear-gradient(to bottom, #ffffff, #84dec4, #3fdabb);
   display: flex;
@@ -28,20 +5,26 @@ body {
   flex-direction: column;
 }
 
-header {
+#welcome-header {
+  font-size: 28pt;
+}
+.logo-container {
+  display: inline-block;
+  
   text-align: center;
   padding: 20px;
 }
 
-.logo-container {
-  display: inline-block;
-}
-
 .logo {
-  max-width: 100%;
+  max-width: 75%;
+  size: 50px;
 }
 
-#firebaseui-auth-container, #loader {
-  margin-top: 10px;
-  padding-top: 10px;
+#firebaseui-auth-container,
+#loader {
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10px;
+  vertical-align:center;
+  display: flex;
 }
