@@ -70,7 +70,8 @@ function showMap() {
                   features.push({
                     type: "Feature",
                     properties: {
-                      description: `<strong>${post_name}</strong><p>${status}</p> <br> <a href="/information?userId=${userDoc.id}&postId=${doc.id}" target="_blank" title="Opens in a new window">Read more</a>`,
+                      // description: `<strong>${post_name}</strong><p>${status}</p> <br> <a href="/information?userId=${userDoc.id}&postId=${doc.id}" target="_blank" title="Opens in a new window">Read more</a>`,
+                      description: `<strong>${post_name}</strong><p>${status}</p> <br> <span class="read-more" data-url="/information?userId=${userDoc.id}&postId=${doc.id}">Read more</span>`,
                     },
                     geometry: {
                       type: "Point",
@@ -116,10 +117,24 @@ function showMap() {
                 coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
               }
 
-              new mapboxgl.Popup()
+              // new mapboxgl.Popup()
+              //   .setLngLat(coordinates)
+              //   .setHTML(description)
+              //   .addTo(map);
+              const popup = new mapboxgl.Popup()
                 .setLngLat(coordinates)
                 .setHTML(description)
                 .addTo(map);
+
+              // Add an event listener for the "Read more" span element
+              const readMoreSpan = document.querySelector(
+                ".mapboxgl-popup .read-more"
+              );
+              readMoreSpan.addEventListener("click", (event) => {
+                event.preventDefault();
+                const url = event.target.getAttribute("data-url");
+                window.location.href = url;
+              });
             });
 
             // Change the cursor to a pointer when the mouse is over the places layer.
