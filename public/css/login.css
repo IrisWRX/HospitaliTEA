@@ -1,32 +1,30 @@
-body {
-    display: flex;
+.container {
     height: 100vh;
-    flex-direction: column;
+    /* background-color: #F8EDE3; */
 }
 
-.logo-container {
-    padding-left: 15%;
-    padding-top: 10%;
+body {
+    margin: auto;
 }
 
-.logo {
-    max-width: 80%;
-    height: 50%;
+.firebaseui-id-submit {
+    background-color: #3d6168 !important;
+    color: #b8a4a4 !important;
 }
 
-h1 {
-    color: #484848;
-    font-size: 23px;
-    text-align: center;
+/* .firebaseui-title, .mdl-textfield__label, .mdl-textfield__input, .firebaseui-id-submit, .firebaseui-link, .firebaseui-tos {
+    font-family: monospace, sans-serif;
+} */
+
+.firebaseui-title {
+    color: #3d6168 !important;
 }
 
-p {
-    color: #484848;
-    font-size: 13px;
-    text-align: center;
+.firebaseui-link {
+    font-size: 12px !important;
 }
 
-#firebaseui-auth-container, #loader {
-    margin-top: 10px;
-    padding-top: 10px;
+.mdl-textfield__label {
+    font-size: 15px !important;
+    /* font-family: monospace, sans-serif !important; */
 }

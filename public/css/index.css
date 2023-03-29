@@ -1,13 +1,14 @@
 .container {
     height: 100vh;
-    background-color: #F8EDE3;
+    /* background-color: #F8EDE3; */
 }
 
 .btn-custom {
     background-color: #3d6168;
-    color: #F8EDE3;
+    color: #b8a4a4;
     font-weight: bold;
     margin-top: 20px;
+    font-size: 20px;
 }
 
 .no-margin-top {
@@ -17,20 +18,20 @@
 .lead1 {
     font-size: 20px;
     color: #3d6168;
-    line-height: 27px;
+    line-height: 29px;
 }
 
 .lead2 {
-    font-size: 27px;
+    font-size: 23px;
     color: #3d6168;
-    line-height: 27px;
+    line-height: 29px;
     font-weight: bold;
 }
 
 .lead3 {
     font-size: 20px;
     color: #3d6168;
-    line-height: 25px;
+    line-height: 29px;
 }
 
 /* * {
