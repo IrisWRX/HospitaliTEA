@@ -10,6 +10,10 @@ body {
   color: #484848;
 }
 
+.card {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
 .btn-custom {
   border-radius: 25px;
   padding: 5px 10px;

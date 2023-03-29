@@ -5,52 +5,6 @@ document
     writePosts();
   });
 
-// function writePosts() {
-//   console.log("inside write post");
-//   let Name = document.getElementById("name").value;
-//   let Address = document.getElementById("address").value;
-//   let Email = document.getElementById("email").value;
-//   let Status = document.getElementById("status").value;
-//   let amenities = document.querySelectorAll('input[name="amenities"]:checked');
-//   let selectedAmenities = {};
-//   for (let i = 0; i < amenities.length; i++) {
-//     let amenityName = amenities[i].value;
-//     selectedAmenities[amenityName] = true;
-//   }
-//   console.log(Name, Address, Email, Status, selectedAmenities);
-
-//   firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//       var currentUser = db.collection("users").doc(user.uid);
-//       var userID = user.uid;
-//       //get the document for current user.
-//       currentUser.get().then((userDoc) => {
-//         var userEmail = userDoc.data().email;
-
-//         currentUser
-//           .collection("posts") // create a subcollection called "posts" under the current user document
-//           .add({
-//             name: Name,
-//             address: Address,
-//             email: Email,
-//             status: Status,
-//             amenities: selectedAmenities,
-//             userID: userID,
-//             userEmail: userEmail,
-//             // timestamp: firebase.firestore.FieldValue.serverTimestamp()
-//           })
-//           .then((docRef) => {
-//             alert("Post successfully saved!");
-//             uploadPic(docRef, ImageFile);
-//             // window.location.href = 'home.html';
-//           });
-//       });
-//     } else {
-//       console.log("No user is signed in");
-//       window.location.href = "login.html";
-//     }
-//   });
-
 function writePosts() {
   console.log("inside write post");
   let Name = document.getElementById("name").value;
