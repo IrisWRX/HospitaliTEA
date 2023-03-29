@@ -97,11 +97,18 @@ function showMap() {
             map.addLayer({
               id: "places",
               type: "symbol",
-              // source: 'places',
               source: "places",
               layout: {
                 "icon-image": "eventpin", // Pin Icon
-                "icon-size": 0.1, // Pin Size
+                "icon-size": [
+                  "interpolate",
+                  ["linear"],
+                  ["zoom"],
+                  0,
+                  0.3, // Pin Size at zoom level 0
+                  22,
+                  0.1 // Pin Size at zoom level 22
+                ],
                 "icon-allow-overlap": true, // Allows icons to overlap
               },
             });
