@@ -5,9 +5,6 @@ body {
   flex-direction: column;
 }
 
-#welcome-header {
-  font-size: 28pt;
-}
 .logo-container {
   display: inline-block;
   
