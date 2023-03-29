@@ -109,7 +109,8 @@ body {
         font-size: 32px;
     }
 
-    .amenities p, .email {
+    .amenities p,
+    .email {
         font-size: 18px;
     }
 

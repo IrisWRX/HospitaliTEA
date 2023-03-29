@@ -6,7 +6,7 @@ function showMap() {
     container: "map", // Container ID
     style: "mapbox://styles/mapbox/streets-v11", // Styling URL
     center: [-123.00084927333764, 49.24961675108895], // Starting position
-    zoom: 10, // Starting zoom
+    zoom: 12, // Starting zoom
   });
 
   function fetchCoordinatesFromAddress(address, accessToken) {
@@ -78,9 +78,9 @@ function showMap() {
                       coordinates: [coordinates.lng, coordinates.lat],
                     },
                   });
-                  console.log(
-                    `Generated URL: /information?userId=${userDoc.id}&postId=${doc.id}`
-                  );
+                  // console.log(
+                  //   `Generated URL: /information?userId=${userDoc.id}&postId=${doc.id}`
+                  // );
                 }
               }
             }

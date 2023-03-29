@@ -7,7 +7,7 @@ body {
 
 .logo-container {
   display: inline-block;
-  
+
   text-align: center;
   padding: 20px;
 }
@@ -22,6 +22,6 @@ body {
   padding: 10px;
   margin: 20px;
   border-radius: 10px;
-  vertical-align:center;
+  vertical-align: center;
   display: flex;
 }
