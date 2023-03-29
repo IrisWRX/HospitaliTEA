@@ -1,4 +1,39 @@
-* {
+.container {
+    height: 100vh;
+    background-color: #F8EDE3;
+}
+
+.btn-custom {
+    background-color: #3d6168;
+    color: #F8EDE3;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
+.lead1 {
+    font-size: 20px;
+    color: #3d6168;
+    line-height: 27px;
+}
+
+.lead2 {
+    font-size: 27px;
+    color: #3d6168;
+    line-height: 27px;
+    font-weight: bold;
+}
+
+.lead3 {
+    font-size: 20px;
+    color: #3d6168;
+    line-height: 25px;
+}
+
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -52,7 +87,7 @@ h1 {
 }
 
 /* Desktop styles */
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
     h1 {
         font-size: 32px;
     }
@@ -64,4 +99,4 @@ h1 {
     .btn {
         font-size: 18px;
     }
-}
+}  */
