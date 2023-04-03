@@ -50,3 +50,20 @@
       margin-left: 3px;
       margin-right: 5px;
   }
+
+  .mapboxgl-popup-content {
+      padding: 16px 16px 16px 16px;
+      position: relative;
+      width: 200px;
+      word-wrap: break-word;
+  }
+
+  .mapboxgl-popup-close-button {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      z-index: 500;
+      background-color: white;
+      border-radius: 50%;
+      padding: 2px 4px;
+  }

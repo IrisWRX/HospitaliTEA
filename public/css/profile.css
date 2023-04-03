@@ -3,6 +3,7 @@ body {
   height: 100vh;
   flex-direction: column;
   padding-top: 70px;
+  overflow-y: auto !important;
 }
 
 .bg-custom {
