@@ -24,8 +24,15 @@ async function fetchCoordinatesFromAddress(address, accessToken) {
 async function getImageUrl(folder, imageName) {
   const storageRef = firebase.storage().ref();
   const imageRef = storageRef.child(`${folder}/${imageName}`);
-  const url = await imageRef.getDownloadURL();
-  return url;
+  // const url = await imageRef.getDownloadURL();
+  // return url;
+  try {
+    const url = await imageRef.getDownloadURL();
+    return url;
+  } catch (error) {
+    console.error("Error fetching image:", error);
+    return "/img/logo2.png";
+  }
 }
 
 function goBack() {
