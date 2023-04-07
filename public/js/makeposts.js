@@ -1,3 +1,5 @@
+// Prevents the form's default submission behavior
+// and calls "writePosts" when the form is submitted.
 document
   .getElementById("post-form")
   .addEventListener("submit", function (event) {
@@ -5,13 +7,14 @@ document
     writePosts();
   });
 
+// Retrieves values from various form input elements
 function writePosts() {
   console.log("inside write post");
   let Name = document.getElementById("name").value;
   let Address = document.getElementById("address").value;
   let Email = document.getElementById("email").value;
   let Status = document.getElementById("status").value;
-  let amenities = $('#amenities').val();
+  let amenities = $("#amenities").val();
   let selectedAmenities = {};
   for (let i = 0; i < amenities.length; i++) {
     let amenityName = amenities[i];
@@ -19,16 +22,16 @@ function writePosts() {
   }
   console.log(Name, Address, Email, Status, selectedAmenities);
 
+  // Sets up an authentication state observer
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       var currentUser = db.collection("users").doc(user.uid);
       var userID = user.uid;
-      //get the document for current user.
       currentUser.get().then((userDoc) => {
         var userEmail = userDoc.data().email;
 
         currentUser
-          .collection("posts") // create a subcollection called "posts" under the current user document
+          .collection("posts")
           .add({
             name: Name,
             address: Address,
@@ -37,12 +40,10 @@ function writePosts() {
             amenities: selectedAmenities,
             userID: userID,
             userEmail: userEmail,
-            // timestamp: firebase.firestore.FieldValue.serverTimestamp()
           })
           .then((docRef) => {
             alert("Post successfully saved!");
             uploadPic(docRef, ImageFile);
-            // window.location.href = 'home.html';
           });
       });
     } else {
@@ -51,17 +52,17 @@ function writePosts() {
     }
   });
 
+  // Uploads the image file to Firebase Storage
+  // and updates the URL of the corresponding image in Firestore document
   function uploadPic(postDocID, imageFile) {
     console.log("inside uploadPic " + postDocID.id);
     var storageRef = storage.ref("images/" + postDocID.id + ".jpg");
-
-    // Include the content type for the image in the metadata
     var metadata = {
       contentType: imageFile.type,
     };
 
     storageRef
-      .put(ImageFile, metadata) // Pass metadata along with ImageFile
+      .put(ImageFile, metadata)
       .then(function () {
         console.log("Uploaded to Cloud Storage.");
         storageRef.getDownloadURL().then(function (url) {
@@ -81,17 +82,41 @@ function writePosts() {
   }
 }
 
+// Lets the user select an image file using a file input element,
+// and then displays the selected image on the webpage.
 var ImageFile;
 function listenFileSelect() {
-  // listen for file selection
-  var fileInput = document.getElementById("mypic-input"); // pointer #1
-  const image = document.getElementById("mypic-goes-here"); // pointer #2
+  var fileInput = document.getElementById("mypic-input");
+  const image = document.getElementById("mypic-goes-here");
 
-  // When a change happens to the File Chooser Input
   fileInput.addEventListener("change", function (e) {
-    ImageFile = e.target.files[0]; //Global variable
+    ImageFile = e.target.files[0];
     var blob = URL.createObjectURL(ImageFile);
-    image.src = blob; // Display this image
+    image.src = blob;
   });
 }
 listenFileSelect();
+
+// Sets up a dropdown list element with options and settings
+$(document).ready(function () {
+  $("#amenities").select2({
+    placeholder: "Select amenities",
+    allowClear: true,
+    templateSelection: function (data, container) {
+      if (data.selected) {
+        $(container).prepend('<input type="checkbox" checked />');
+      }
+      return data.text;
+    },
+    templateResult: function (data) {
+      var $result = $("<span></span>");
+      var $checkbox = $('<input type="checkbox" />').prop(
+        "checked",
+        data.selected
+      );
+      $result.append($checkbox);
+      $result.append(" " + data.text);
+      return $result;
+    },
+  });
+});

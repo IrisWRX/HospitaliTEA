@@ -1,74 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>HospitaliTea</title>
 
-<head>
-  <title>HospitaliTea</title>
-  <meta name="comp1800 template" content="My 1800 App" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
 
-  <!-- Bootstrap Library CSS CDN go here -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <!-- Boostrap Library JS CDN  go here -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
+    <!-- Boostrap Library JS CDN  go here -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-  <!-- Other libraries go here -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Itim&family=Josefin+Sans:ital,wght@1,600&family=Montserrat&family=Nunito&family=Playfair+Display&family=Poller+One&family=Roboto&display=swap"
-    rel="stylesheet" />
+    <!-- Other libraries go here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/554845ece2.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Link to styles of your own -->
-  <link rel="stylesheet" href="/css/login.css" />
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="/css/login.css" />
 
-  <!-- Firebase 8 -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
-  <script src="https://kit.fontawesome.com/554845ece2.js" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
+    <!-- Firebase 8 -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css"
+    />
+  </head>
 
-<body>
-  <!------------------------------>
-  <!-- Your HTML Layout go here -->
-  <div class="container">
-    <div class="px-4 pt-3 my-3 text-center no-margin-top">
-      <div class="overflow-hidden" style="max-height: 30vh">
-        <div class="container px-5">
-          <img src="/img/logo2.png" class="img-fluid rounded-3 mb-4" alt="logo image" width="200" height="200"
-            loading="lazy" />
+  <body>
+    <div class="container">
+      <div class="px-4 pt-3 my-3 text-center no-margin-top">
+        <div class="overflow-hidden" style="max-height: 30vh">
+          <div class="container px-5">
+            <img
+              src="/img/logo2.png"
+              class="img-fluid rounded-3 mb-4"
+              alt="logo image"
+              width="200"
+              height="200"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 mx-auto">
+          <div id="firebaseui-auth-container"></div>
+          <div id="loader">Loading...</div>
         </div>
       </div>
-      <div class="col-lg-6 mx-auto">
-        <div id="firebaseui-auth-container"></div>
-        <div id="loader">Loading...</div>
-      </div>
     </div>
-  </div>
 
-  <!--login widget added-->
-
-  <!-- <footer id="footerPlaceholder"></footer> -->
-
-  <!------------------------------>
-
-  <!---------------------------------------------->
-  <!-- Your own JavaScript functions go here    -->
-  <!---------------------------------------------->
-
-  <!-- Link to scripts of your own -->
-  <script src="/js/firebaseAPI_HospitaliTea.js"></script>
-  <script src="/js/authentication.js"></script>
-</body>
-
+    <script src="/js/firebaseAPI_HospitaliTea.js"></script>
+    <script src="/js/authentication.js"></script>
+  </body>
 </html>

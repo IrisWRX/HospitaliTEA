@@ -1,20 +1,14 @@
+// Retrieves the display name of the currently logged in Firebase user 
+// and displays it on a webpage.
 function insertName() {
-    firebase.auth().onAuthStateChanged(user => {
-        // Check if a user is signed in:
-        if (user) {
-            // Do something for the currently logged-in user here: 
-            console.log(user.uid); //print the uid in the browser console
-            console.log(user.displayName);  //print the user name in the browser console
-            user_Name = user.displayName;
-
-            //method #1:  insert with html only
-            //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
-            //method #2:  insert using jquery
-            $("#name-goes-here").text(user_Name); //using jquery
-
-        } else {
-            // No user is signed in.
-        }
-    });
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      console.log(user.uid);
+      console.log(user.displayName);
+      user_Name = user.displayName;
+      $("#name-goes-here").text(user_Name);
+    } else {
+    }
+  });
 }
-insertName(); //run the function
+insertName();

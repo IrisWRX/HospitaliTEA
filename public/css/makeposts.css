@@ -2,7 +2,6 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  /* background: linear-gradient(#ffffff, #84dec4, #3fdabb); */
   padding-top: 70px;
   overflow: scroll;
   padding-bottom: 90px;
@@ -46,7 +45,3 @@ body {
 .photos-label {
   margin-bottom: 0;
 }
-
-/* .form-control {
-  background-color: #f3f3f3;
-} */

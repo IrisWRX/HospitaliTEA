@@ -7,6 +7,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("userId");
 const postId = urlParams.get("postId");
 
+// Fetch data from Firestore database that contains information about a specific post from a specific user
 db.collection("users")
   .doc(userId)
   .collection("posts")
@@ -14,9 +15,7 @@ db.collection("users")
   .get()
   .then((doc) => {
     if (doc.exists) {
-      // Display the document's data on the information page
       const data = doc.data();
-      // Use the data to populate the information page
 
       // Display the image
       document.getElementById("shelter-image").src = data.image;
@@ -63,11 +62,11 @@ db.collection("users")
 document.getElementById("contact-btn").addEventListener("click", () => {
   contactNow(userId);
 });
-//------------------------------------------------
-// This function will find out who is logged,
-// And find out the owner's name and email
+
+
+// Find out who is logged,
+// And find out the owner's name and email,
 // Call the user's mail client to send an email.
-//-------------------------------------------------
 function contactNow(owner) {
   firebase.auth().onAuthStateChanged((user) => {
     if (owner != user.uid) {

@@ -1,14 +1,15 @@
 function showMap() {
-  // Defines basic mapbox data
+  // Sets up a Mapbox map with a street style, centered on a specific location, and zoomed in to a specific level
   mapboxgl.accessToken =
     "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ";
   const map = new mapboxgl.Map({
-    container: "map", // Container ID
-    style: "mapbox://styles/mapbox/streets-v11", // Styling URL
-    center: [-123.00084927333764, 49.24961675108895], // Starting position
-    zoom: 12, // Starting zoom
+    container: "map",
+    style: "mapbox://styles/mapbox/streets-v11",
+    center: [-123.00084927333764, 49.24961675108895],
+    zoom: 12,
   });
 
+  // Fetch coordinates from an address using Mapbox API
   function fetchCoordinatesFromAddress(address, accessToken) {
     return fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
@@ -35,25 +36,18 @@ function showMap() {
   // Add user controls to map
   map.addControl(new mapboxgl.NavigationControl());
 
-  // Adds map features
+  // Load additional resources and features when the map is loaded
   map.on("load", () => {
-    // Defines map pin icon for events
     map.loadImage(
       "https://cdn.iconscout.com/icon/free/png-256/pin-locate-marker-location-navigation-16-28668.png",
       (error, image) => {
         if (error) throw error;
-
-        // Add the image to the map style.
-        map.addImage("eventpin", image); // Pin Icon
-
-        // Read all user documents from the "users" collection
+        map.addImage("eventpin", image);
         db.collection("users")
           .get()
           .then(async (allUsers) => {
-            const features = []; // Defines an empty array for information to be added to
-
+            const features = [];
             for (const userDoc of allUsers.docs) {
-              // Read posts from the "posts" subcollection of the current user
               const allEvents = await userDoc.ref.collection("posts").get();
               for (const doc of allEvents.docs) {
                 const address = doc.data().address;
@@ -61,16 +55,12 @@ function showMap() {
                   address,
                   "pk.eyJ1IjoiYWRhbWNoZW4zIiwiYSI6ImNsMGZyNWRtZzB2angzanBjcHVkNTQ2YncifQ.fTdfEXaQ70WoIFLZ2QaRmQ" // Replace with your Mapbox access token
                 );
-
                 if (coordinates) {
                   const post_name = `Hosted by ${doc.data().name}`;
                   const status = `Status: ${doc.data().status}`;
-
-                  // Pushes information into the features array
                   features.push({
                     type: "Feature",
                     properties: {
-                      // description: `<strong>${post_name}</strong><p>${status}</p> <br> <a href="/information?userId=${userDoc.id}&postId=${doc.id}" target="_blank" title="Opens in a new window">Read more</a>`,
                       description: `<strong>${post_name}</strong><p>${status}</p> <br> <span class="read-more" data-url="/information?userId=${userDoc.id}&postId=${doc.id}">Read more</span>`,
                     },
                     geometry: {
@@ -78,12 +68,10 @@ function showMap() {
                       coordinates: [coordinates.lng, coordinates.lat],
                     },
                   });
-                  // console.log(
-                  //   `Generated URL: /information?userId=${userDoc.id}&postId=${doc.id}`
-                  // );
                 }
               }
             }
+
             // Adds features as a source to the map
             map.addSource("places", {
               type: "geojson",
@@ -99,23 +87,22 @@ function showMap() {
               type: "symbol",
               source: "places",
               layout: {
-                "icon-image": "eventpin", // Pin Icon
+                "icon-image": "eventpin",
                 "icon-size": [
                   "interpolate",
                   ["linear"],
                   ["zoom"],
                   0,
-                  0.3, // Pin Size at zoom level 0
+                  0.3,
                   22,
-                  0.1 // Pin Size at zoom level 22
+                  0.1,
                 ],
-                "icon-allow-overlap": true, // Allows icons to overlap
+                "icon-allow-overlap": true,
               },
             });
 
-            // Map On Click function that creates a popup, displaying previously defined information from "events" collection in Firestore
+            // Creates a popup, displaying previously defined information from "events" collection in Firestore
             map.on("click", "places", (e) => {
-              // Copy coordinates array.
               const coordinates = e.features[0].geometry.coordinates.slice();
               const description = e.features[0].properties.description;
 
@@ -124,10 +111,6 @@ function showMap() {
                 coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
               }
 
-              // new mapboxgl.Popup()
-              //   .setLngLat(coordinates)
-              //   .setHTML(description)
-              //   .addTo(map);
               const popup = new mapboxgl.Popup()
                 .setLngLat(coordinates)
                 .setHTML(description)
@@ -160,11 +143,7 @@ function showMap() {
           "https://cdn-icons-png.flaticon.com/512/61/61168.png",
           (error, image) => {
             if (error) throw error;
-
-            // Add the image to the map style with width and height values
             map.addImage("userpin", image, { width: 10, height: 10 });
-
-            // Adds user's current location as a source to the map
             navigator.geolocation.getCurrentPosition((position) => {
               const userLocation = [
                 position.coords.longitude,
@@ -197,15 +176,14 @@ function showMap() {
                   type: "symbol",
                   source: "userLocation",
                   layout: {
-                    "icon-image": "userpin", // Pin Icon
-                    "icon-size": 0.05, // Pin Size
-                    "icon-allow-overlap": true, // Allows icons to overlap
+                    "icon-image": "userpin",
+                    "icon-size": 0.05,
+                    "icon-allow-overlap": true,
                   },
                 });
 
-                // Map On Click function that creates a popup displaying the user's location
+                // Creates a popup displaying the user's location
                 map.on("click", "userLocation", (e) => {
-                  // Copy coordinates array.
                   const coordinates =
                     e.features[0].geometry.coordinates.slice();
                   const description = e.features[0].properties.description;
@@ -221,7 +199,6 @@ function showMap() {
                   map.getCanvas().style.cursor = "pointer";
                 });
 
-                // Defaults
                 // Defaults cursor when not hovering over the userLocation layer
                 map.on("mouseleave", "userLocation", () => {
                   map.getCanvas().style.cursor = "";

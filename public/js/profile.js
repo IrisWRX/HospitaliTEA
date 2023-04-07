@@ -15,11 +15,6 @@ function populateUserInfo() {
         var userWork = userDoc.data().work;
         var userPhone = userDoc.data().phone;
         var userEmail = userDoc.data().email;
-        // var userAddress = userDoc.data().address;
-        // var userAddress2 = userDoc.data().address2;
-        // var userCity = userDoc.data().city;
-        // var userProvince = userDoc.data().province;
-        // var userZip = userDoc.data().zip;
 
         //if the data fields are not empty, then write them into the form.
         if (userName != null) {
@@ -56,6 +51,8 @@ function editUserInfo() {
   document.getElementById("personalInfoFields").disabled = false;
 }
 
+// Retrieves values from form input elements 
+// and saves them to respective variables
 function saveUserInfo() {
   userName = document.getElementById("nameInput").value;
   userGender = document.getElementById("genderInput").value;
@@ -63,11 +60,6 @@ function saveUserInfo() {
   userWork = document.getElementById("workInput").value;
   userPhone = document.getElementById("phoneInput").value;
   userEmail = document.getElementById("emailInput").value;
-  //   userAddress = document.getElementById("inputAddress").value;
-  //   userAddress2 = document.getElementById("inputAddress2").value;
-  //   userCity = document.getElementById("inputCity").value;
-  //   userProvince = document.getElementById("inputCity").value;
-  //   userZip = document.getElementById("inputZip").value;
 
   currentUser
     .update({

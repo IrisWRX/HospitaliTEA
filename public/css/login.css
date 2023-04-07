@@ -1,6 +1,5 @@
 .container {
     height: 100vh;
-    /* background-color: #F8EDE3; */
 }
 
 body {
@@ -12,10 +11,6 @@ body {
     color: #fff !important;
 }
 
-/* .firebaseui-title, .mdl-textfield__label, .mdl-textfield__input, .firebaseui-id-submit, .firebaseui-link, .firebaseui-tos {
-    font-family: monospace, sans-serif;
-} */
-
 .firebaseui-title {
     color: #3d6168 !important;
 }
@@ -26,5 +21,4 @@ body {
 
 .mdl-textfield__label {
     font-size: 15px !important;
-    /* font-family: monospace, sans-serif !important; */
 }
