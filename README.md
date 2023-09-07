@@ -2,34 +2,27 @@
 
 ## 1. Project Description
 
-Our team, BBY 15, is developing an interactive mobile app, HospitaliTEA, that helps users find accommodation when stranded due to extreme weather conditions; while also allowing users to provide shelter for community members in need.
+HospitaliTEA is a web app that helps users find accommodation during extreme weather conditions while also allowing users to provide shelter for community members in need.
 
 ## 2. Names of Contributors
 
-List team members and/or short bio's here.
-
-- Hi my name is Steven! I'm excited to work on this project!
-- Hi my name is Iris. I'm excited to work on this project.
-- Hi my name is Alex. I'm exicited about this project.
+- Alex
+- Iris
+- Steven
 
 ## 3. Technologies and Resources Used
 
-List technologies (with version numbers), API's, icons, fonts, images, media or data sources, and other resources that were used.
-
-- HTML 5
-- CSS
+- HTML5
+- CSS3
 - JavaScript
-- Bootstrap v5.1.3
-- Mapbox GL JS v2.7.0
-- jQuery v3.5.1
-- Firebase v8.10.0 (Authentication, Firestore, Storage)
-- Font Awesome v5.15.4
-- Logo image (/img/logo2.png)
+- jQuery
+- Bootstrap
+- Node.js
+- Express.js
+- Mapbox API 
+- Firebase  
 
 ## 4. Complete setup/installion/usage
-
-State what a user needs to do when they come to your project. How do others start using your code or application?
-Here are the steps.
 
 - Clone the repository to your local machine.
 - Open the project folder in your code editor.
@@ -43,21 +36,16 @@ Note: This project is designed to be used on mobile devices, so it is recommende
 
 ## 5. Known Bugs and Limitations
 
-Here are some known bugs:
-
-- The map pins, list and information page can be slow to load.
+- The map pins, list, and information page can be slow to load.
 - The app may not work properly if your device's location services are turned off.
 - When the status of a shelter is changed to "Unavailable", it can still be shown as pins and list contents.
-- The pop-up option box for selecting the status of the shelter when creating a post is wider than the screen size of a mobile phone.
 
 ## 6. Features for Future
 
-What we'd like to build in the future:
-
-- Enhancing the design of key pages such as the landing, post, my posts, and profile pages to make them more visually appealing and user-friendly.
-- Implementing a search function that enables users to search for shelters based on location.
-- Hiding shelters with an "Unavailable" status from the map pins and list contents to avoid confusion.
-- Developing a messaging feature that allows hosts and guests to communicate with each other directly within the app.
+- Enhance the design to make them more visually appealing and user-friendly.
+- Implement search function that enables users to search for shelters based on location.
+- Hide shelters with an "Unavailable" status from the map pins and list contents.
+- Develop a message feature that allows hosts and guests to communicate with each other directly within the app.
 
 ## 7. Contents of Folder
 
