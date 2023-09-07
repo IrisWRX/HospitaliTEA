@@ -19,18 +19,40 @@ HospitaliTEA is a web app that helps users find accommodation during extreme wea
 - Bootstrap
 - Node.js
 - Express.js
-- Mapbox API 
-- Firebase  
+- Mapbox API
+- Firebase
 
 ## 4. Complete setup/installion/usage
 
-- Clone the repository to your local machine.
-- Open the project folder in your code editor.
-- Set up Firebase for the project by creating a new Firebase project in the Firebase console and copying the configuration details into the firebaseAPI_HospitaliTea.js file.
-- Create a Mapbox account and obtain an API key. Replace the placeholder text in the mapboxAPI.js file with your API key.
-- Open the index.html file in your web browser to use the application.
-- To use the full functionality of the app, you must create an account and sign in. Click the "Get Started" button on the landing page to sign up.
-- Once you have signed in, you can search for available shelters near your location or offer a shelter for community members in need.
+To set up HospitaliTEA locally, follow these steps:
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/IrisWRX/HospitaliTEA.git
+   ```
+
+2. Change into the project directory:
+
+   ```bash
+   cd HospitaliTEA
+   ```
+
+3. Install the dependencies using npm:
+
+   ```bash
+   npm i
+   ```
+
+4. Create a Firebase account and set up a new Firebase project. Copy the configuration details into the firebaseAPI_HospitaliTea.js file.
+
+5. Create a Mapbox account and obtain an API key. Replace the placeholder text in the mapboxAPI.js file with your API key.
+
+6. After you have installed the dependencies, you can start the server:
+
+   ```bash
+   node server.js
+   ```
 
 Note: This project is designed to be used on mobile devices, so it is recommended that you test the application on a mobile device or emulator.
 
@@ -66,6 +88,7 @@ Top level of project folder:
 It has the following subfolders and files:
 ├── app                      # Folder for HTML files for the different pages of the app.
     /home.html
+
     /index.html
     /information.html
     /list.html
