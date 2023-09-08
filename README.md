@@ -1,4 +1,4 @@
-# Project Title
+# HospitaliTEA
 
 ## 1. Project Description
 
